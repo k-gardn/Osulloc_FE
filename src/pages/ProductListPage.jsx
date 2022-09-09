@@ -1,7 +1,12 @@
 import React from "react";
+import LayoutPage from "./LayoutPage";
 
 const ProductList = () => {
-  return <div>ProductList</div>;
+  return (
+    <>
+      <LayoutPage ProductList={ProductList} />
+    </>
+  );
 };
 
 export default ProductList;

@@ -1,8 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainPage from "./pages/MainPage";
-import ProductList from "./pages/ProductList";
+import ProductList from "./pages/ProductListPage";
 
 function App() {
   return (
