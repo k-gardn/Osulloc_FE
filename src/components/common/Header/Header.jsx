@@ -72,7 +72,6 @@ const Header = () => {
           )}
         </div>
       </header>
-      <div className={styles.emptyBox}></div>
     </div>
   );
 };
