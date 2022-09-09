@@ -1,7 +1,7 @@
 import React from "react";
 
-function join() {
+function Join() {
   return <div>join</div>;
 }
 
-export default join;
+export default Join;
