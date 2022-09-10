@@ -8,14 +8,15 @@ function Login() {
   const [email, setEmail, emailHandler] = useInput();
   const [pw, setPw, pwHandler] = useInput();
 
-  // 이메일 검사: '@', '.' 이 둘다 포함될것.
+  // 이메일 검사: '@', '.' 이 모두 포함되어야 함.
   const isValidEmail = email.includes("@") && email.includes(".");
   // 비밀번호 특수문자 검사를 위한 정규식표현.
-  const specialLetter = pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
-  // 특수문자 1자 이상, 전체 8자 이상일것.
-  const isValidPw = pw.length >= 8 && specialLetter >= 1;
-
-  console.log(document.cookie);
+  const isValidPw = pw.search(
+    "^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$"
+  );
+  // // 특수문자 1자 이상, 전체 8자 이상일것.
+  // const isValidPw = pw.length >= 8 && specialLetter >= 1;
+  // pw.search(/[`~!@@#$%^&*|₩₩₩'₩";:₩/?]/gi);
 
   return (
     <div className={styles.background}>
