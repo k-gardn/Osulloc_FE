@@ -1,0 +1,83 @@
+@font-face {
+  font-family: "Arita-dotum-Medium";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/Arita-dotum-Medium.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+.background {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(160, 209, 153, 0.173);
+  /* backdrop-filter: blur(5px); */
+}
+
+.loginbox {
+  font-family: "Arita-dotum-Medium";
+  position: relative;
+  background-color: white;
+  z-index: 1;
+  width: 500px;
+  height: 580px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px 30px 30px 30px;
+  box-shadow: 0px 0px 30px #d8d8d8;
+}
+
+.logo {
+  text-align: center;
+  margin: 10px 0px 10px 0px;
+}
+
+.inputbox {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.input {
+  margin: 20px 0px 0px 0px;
+  padding: 3px 10px 3px 10px;
+  width: 400px;
+  height: 45px;
+  border: 1px solid rgb(222, 222, 222);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.loginBtn {
+  margin-top: 40px;
+  padding: 3px 10px 3px 10px;
+  width: 422px;
+  height: 50px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  background-color: rgb(243, 243, 243);
+  color: darkgray;
+  font-weight: bold;
+}
+
+.loginBtn:hover {
+  background-color: #6c7f1a;
+  color: beige;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.joinYet {
+  display: flex;
+  width: 500px;
+  justify-content: space-between;
+
+  position: absolute;
+  bottom: 40px;
+
+  color: rgb(100, 100, 100);
+  font-weight: 500;
+  font-size: 1.1rem;
+}
