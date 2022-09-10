@@ -10,7 +10,7 @@ function Login() {
 
   // 이메일 검사: '@', '.' 이 모두 포함되어야 함.
   const isValidEmail = email.includes("@") && email.includes(".");
-  // 비밀번호 특수문자 검사를 위한 정규식표현.
+  // 비밀번호 특수문자 검사를 위한 정규식
   const isValidPw = pw.search(
     "^(?=.*[A-Za-z])(?=.*d)(?=.*[@$!%*#?&])[A-Za-zd@$!%*#?&]{8,}$"
   );

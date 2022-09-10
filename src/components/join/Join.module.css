@@ -21,7 +21,7 @@
   border-radius: 2px;
   z-index: 1;
   width: 850px;
-  height: 550px;
+  height: 600px;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -35,18 +35,18 @@
   display: flex;
 }
 
-.rightjoinbox {
+.leftjoinbox {
   text-align: center;
   border-radius: 2px 0px 0px 2px;
-  background: linear-gradient(160deg, #6c7f1a, #c5cbac, #eff2e8);
+  background: linear-gradient(190deg, #849827, #c5cbac, #eff2e8);
   padding: 20px 10px 20px 10px;
   width: 470px;
 }
 
-.leftjoinbox {
+.rightjoinbox {
   text-align: center;
   width: 380px;
-  height: 550px;
+  height: 600px;
   background-color: white;
   border-radius: 2px 0px 0px 2px;
   color: rgb(68, 68, 68);
@@ -55,7 +55,7 @@
 .content {
   margin: 40px 0px 25px 0px;
   text-align: center;
-  font-size: 1.7rem;
+  font-size: 1.8rem;
   font-weight: bold;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .inputbox {
-  margin-top: 40px;
+  margin-top: 65px;
   text-align: center;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .joinBtn {
-  margin-top: 40px;
+  margin-top: 50px;
   padding: 3px 10px 3px 10px;
   width: 370px;
   height: 45px;
