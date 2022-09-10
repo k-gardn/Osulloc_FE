@@ -1,0 +1,19 @@
+.card {
+  width: 15em;
+  display: flex;
+  flex-direction: column;
+  /* transform: translateX(-15em); */
+}
+
+.img {
+  /* width: 100%; */
+}
+
+.info {
+  margin: 2em 0 0 1em;
+}
+
+.price {
+  padding-top: 0.4em;
+  font-size: 1.4em;
+}
