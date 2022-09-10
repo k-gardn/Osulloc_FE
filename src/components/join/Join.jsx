@@ -10,6 +10,15 @@ function Join() {
       <div className={styles.joinbox}>
         <div className={styles.halfjoinbox}>
           <div className={styles.leftjoinbox}>
+            <img
+              src={"/osullocblacklogo.jpeg"}
+              alt="logo"
+              width="350"
+              height="350"
+              style={{ paddingTop: "100px" }}
+            />
+          </div>
+          <div className={styles.rightjoinbox}>
             <p className={styles.content}>오설록에 오신 것을 환영합니다</p>
             <div className={styles.joinalready}>
               <div>이미 회원이신가요?</div>
@@ -59,15 +68,6 @@ function Join() {
               ></input>
               <button className={styles.joinBtn}>회원가입</button>
             </div>
-          </div>
-          <div className={styles.rightjoinbox}>
-            <img
-              src={"/osullocblacklogo.jpeg"}
-              alt="logo"
-              width="350"
-              height="350"
-              style={{ paddingTop: "100px" }}
-            />
           </div>
         </div>
       </div>

@@ -27,7 +27,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 0px 15px #aaaaaa;
-  background: linear-gradient(160deg, #6c7f1a, #c5cba9, #ffffff);
+  /* background: linear-gradient(160deg, #6c7f1a, #c5cbac, #ffffff); */
   color: white;
 }
 
@@ -35,10 +35,28 @@
   display: flex;
 }
 
-.leftjoinbox {
+.rightjoinbox {
   text-align: center;
+  border-radius: 2px 0px 0px 2px;
+  background: linear-gradient(160deg, #6c7f1a, #c5cbac, #eff2e8);
   padding: 20px 10px 20px 10px;
   width: 470px;
+}
+
+.leftjoinbox {
+  text-align: center;
+  width: 380px;
+  height: 550px;
+  background-color: white;
+  border-radius: 2px 0px 0px 2px;
+  color: rgb(68, 68, 68);
+}
+
+.content {
+  margin: 40px 0px 25px 0px;
+  text-align: center;
+  font-size: 1.7rem;
+  font-weight: bold;
 }
 
 .joinalready {
@@ -47,15 +65,7 @@
   justify-content: space-between;
   font-size: 1.1rem;
   color: rgb(239, 239, 239);
-}
-
-.rightjoinbox {
-  text-align: center;
-  width: 380px;
-  height: 550px;
-  background-color: white;
-  border-radius: 0px 2px 2px 0px;
-  color: rgb(68, 68, 68);
+  border-bottom: 2px solid white;
 }
 
 .p {
@@ -70,14 +80,8 @@
   margin: 0px 5px 0px 5px;
 }
 
-.content {
-  text-align: center;
-  font-size: 1.7rem;
-  font-weight: bold;
-}
-
 .inputbox {
-  margin-top: 30px;
+  margin-top: 40px;
   text-align: center;
 }
 
@@ -85,7 +89,7 @@
   margin: 15px 0px 0px 0px;
   padding: 3px 10px 3px 10px;
   width: 350px;
-  height: 40px;
+  height: 35px;
   border: 1px solid rgb(222, 222, 222);
   border-radius: 6px;
   font-size: 1rem;
