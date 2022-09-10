@@ -1,0 +1,121 @@
+.container {
+    border: solid 2px blue;
+}
+.item_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    max-width: 70vw;
+    min-width: 30vw;
+    margin: auto;
+}
+
+.leftbox {
+    /* border: solid 2px red; */
+    position: relative;
+    /* float: left; */
+    width: 30vw;
+}
+
+.item_layout {
+    position: relative;
+    padding: 30px 43px 110px;
+    background: #f8f9fb;
+}
+
+.imgbox {
+    max-width: 480px;
+}
+.img {
+    max-width: 100%;
+}
+
+.buyer_benefits {
+    border: solid 2px black;
+    display: flex;
+}
+
+.benefit {
+    width: 50px;
+}
+.rightbox {
+    /* border: solid 2px yellow; */
+    position: relative;
+    float: right;
+    width: 49%;
+    padding: 10px;
+}
+
+.breadcrumbs {
+    /* border: solid 2px green; */
+}
+
+.productName {
+    font-size: 2rem;
+    margin: 1rem 10px;
+}
+
+.produtContent {
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+}
+
+.btnAndPriceBox {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.btnAndPriceBox p {
+    font-size: 1.7rem;
+    font-weight: 500;
+    /* text-align: center; */
+}
+
+.smallbtnset button {
+    border: solid 2px rgba(255, 0, 0, 0);
+    width: 2.7rem;
+    height: 2.5rem;
+    font-size: 15px;
+    margin: 5px;
+    background-color: f8f9fb;
+    cursor: pointer;
+    border-radius: 50px;
+}
+.urlbtn {
+    background: url(https://www.osulloc.com/kr/ko/static_renew/images/item_detail/ic_url.png?quality=80);
+    background-size: cover;
+}
+.urlbtn:hover {
+    background: url(https://www.osulloc.com/kr/ko/static_renew/images/item_detail/ic_url_on.png?quality=80);
+    background-size: cover;
+}
+
+.fbtn {
+    background: url(https://www.osulloc.com/kr/ko/static_renew/images/item_detail/ic_facebook.png?quality=80);
+    background-size: cover;
+}
+
+.productbottombox {
+    background-color: #f8f9fb;
+    border: 1px solid #efefef;
+    padding: 2rem;
+}
+
+.productflexbox {
+    display: flex;
+    justify-content: space-between;
+}
+.productcount {
+    display: flex;
+    width: 100px;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.package {
+    background-color: white;
+    border-radius: 0px;
+}
+
+/* .delivery */

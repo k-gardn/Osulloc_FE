@@ -1,0 +1,6 @@
+{
+    "highlight.decorations": {
+        "rangeBehavior": 3
+        // "fontColor": "$2"
+    }
+}
