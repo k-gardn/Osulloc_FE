@@ -20,7 +20,7 @@
   background-color: white;
   border-radius: 2px;
   z-index: 1;
-  width: 850px;
+  width: 800px;
   height: 600px;
   position: absolute;
   top: 50%;
@@ -35,18 +35,19 @@
   display: flex;
 }
 
-.leftjoinbox {
+.rightjoinbox {
   text-align: center;
   border-radius: 2px 0px 0px 2px;
   background: linear-gradient(190deg, #849827, #c5cbac, #eff2e8);
   padding: 20px 10px 20px 10px;
-  width: 470px;
+  width: 500px;
+  height: 600px;
 }
 
-.rightjoinbox {
+.leftjoinbox {
   text-align: center;
-  width: 380px;
-  height: 600px;
+  margin: auto;
+  width: 350px;
   background-color: white;
   border-radius: 2px 0px 0px 2px;
   color: rgb(68, 68, 68);
@@ -88,8 +89,8 @@
 .input {
   margin: 15px 0px 0px 0px;
   padding: 3px 10px 3px 10px;
-  width: 350px;
-  height: 35px;
+  width: 370px;
+  height: 40px;
   border: 1px solid rgb(222, 222, 222);
   border-radius: 6px;
   font-size: 1rem;
@@ -103,7 +104,7 @@
 }
 
 .joinBtn {
-  margin-top: 50px;
+  margin-top: 55px;
   padding: 3px 10px 3px 10px;
   width: 370px;
   height: 45px;

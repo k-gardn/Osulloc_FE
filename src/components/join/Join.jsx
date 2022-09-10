@@ -20,18 +20,15 @@ function Join() {
     <div className={styles.background}>
       <div className={styles.joinbox}>
         <div className={styles.halfjoinbox}>
-          <div className={styles.rightjoinbox}>
-            {/* <TextField id="outlined-basic" label="E-mail" variant="outlined" /> */}
-            <TextField id="standard-basic" label="Standard" variant="standard" />
+          <div className={styles.leftjoinbox}>
             <img
               src={"/osullocblacklogo.jpeg"}
               alt="blacklogo"
-              width="350"
-              height="350"
-              style={{ paddingTop: "125px" }}
+              width="300"
+              height="300"
             />
           </div>
-          <div className={styles.leftjoinbox}>
+          <div className={styles.rightjoinbox}>
             <p className={styles.content}>오설록에 오신 것을 환영합니다</p>
             <div className={styles.joinalready}>
               <div>이미 회원이신가요?</div>
@@ -46,7 +43,7 @@ function Join() {
                 title="name"
                 value={name}
                 onChange={nameHandler}
-                style={{ width: "160px", marginRight: "21px" }}
+                style={{ width: "181px", marginRight: "20px" }}
               ></input>
               <label className={styles.label}>
                 <input

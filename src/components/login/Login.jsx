@@ -42,10 +42,10 @@ function Login() {
           ></input>
           <button className={styles.loginBtn}>로그인</button>
           <div className={styles.joinYet}>
-            <div>아직 회원이 아니세요?</div>
-            <div onClick={() => navigate("/join")} style={{ cursor: "pointer" }}>
+            <p>아직 회원이 아니세요?</p>
+            <p onClick={() => navigate("/join")} style={{ cursor: "pointer" }}>
               회원가입 ＞
-            </div>
+            </p>
           </div>
         </div>
       </div>
