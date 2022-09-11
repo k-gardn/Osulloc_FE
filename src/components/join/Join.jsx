@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Join.module.css";
 import useInput from "../../hooks/useInput";
-import TextField from "@mui/material/TextField";
+import { instance } from "../../network/request";
 
 function Join() {
   const navigate = useNavigate();
-  const [name, setName, nameHandler] = useInput("");
+  const [userName, setUserName, userNameHandler] = useInput("");
   const [subscribe, setSubscribe] = useState(false);
   const [email, setEmail, emailHandler] = useInput("");
   const [pw, setPw, pwHandler] = useInput("");
@@ -15,6 +15,25 @@ function Join() {
   const subscribeHandler = (e) => {
     setSubscribe(e.target.checked);
   };
+
+  async function join(email, pw, userName, subscribe) {
+    try {
+      const res = await instance.post(`/api/member/signup`, {
+        email,
+        pw,
+        userName,
+        subscribe,
+      });
+      const data = res.data;
+      console.log(data);
+    } catch (error) {
+      console.log(error.response);
+      const statusCode = error.response.status;
+      const statusText = error.response.statusText;
+      const msg = error.response.data.message[0];
+      alert(`${statusCode}` - `${statusText}` - `${msg}`);
+    }
+  }
 
   return (
     <div className={styles.background}>
@@ -40,9 +59,9 @@ function Join() {
               <input
                 className={styles.input}
                 placeholder="이름을 입력하세요."
-                title="name"
-                value={name}
-                onChange={nameHandler}
+                title="username"
+                value={userName}
+                onChange={userNameHandler}
                 style={{ width: "181px", marginRight: "20px" }}
               ></input>
               <label className={styles.label}>
