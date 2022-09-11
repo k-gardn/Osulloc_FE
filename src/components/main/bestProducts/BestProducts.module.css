@@ -1,62 +1,62 @@
-* {
+/* * {
   margin: auto;
-}
+} */
 
 .container {
-  display: flex;
-  align-items: center;
-  width: 80%;
+    display: flex;
+    align-items: center;
+    width: 80%;
 }
 
 .productsContainer {
-  margin: 2em;
-  max-width: 75em;
-  text-align: center;
-  overflow: hidden;
+    margin: 2em;
+    max-width: 75em;
+    text-align: center;
+    overflow: hidden;
 }
 
 .productsBox {
 }
 
 .btnBackProduct {
-  background-color: transparent;
-  border: 0;
-  color: darkgrey;
-  cursor: pointer;
-  font-size: 2em;
+    background-color: transparent;
+    border: 0;
+    color: darkgrey;
+    cursor: pointer;
+    font-size: 2em;
 }
 
 .btnForwardProduct {
-  background-color: transparent;
-  border: 0;
-  color: darkgrey;
-  cursor: pointer;
-  font-size: 2em;
+    background-color: transparent;
+    border: 0;
+    color: darkgrey;
+    cursor: pointer;
+    font-size: 2em;
 }
 
 .title {
-  font-size: 1.7em;
-  font-weight: bold;
-  text-align: left;
-  padding-bottom: 1em;
+    font-size: 1.7em;
+    font-weight: bold;
+    text-align: left;
+    padding-bottom: 1em;
 }
 
 .productsBox {
-  display: flex;
+    display: flex;
 }
 
 .products {
-  display: flex;
-  flex-direction: row;
-  /* background-color: bisque; */
-  margin-bottom: 6em;
-  text-align: left;
+    display: flex;
+    flex-direction: row;
+    /* background-color: bisque; */
+    margin-bottom: 6em;
+    text-align: left;
 }
 
 .btnAllProducts {
-  padding: 1.2em 5em;
-  background-color: transparent;
-  border: 1px solid lightgray;
-  border-radius: 0.5em;
-  cursor: pointer;
+    padding: 1.2em 5em;
+    background-color: transparent;
+    border: 1px solid lightgray;
+    border-radius: 0.5em;
+    cursor: pointer;
 }
