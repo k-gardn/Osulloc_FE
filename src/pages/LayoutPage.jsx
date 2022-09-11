@@ -4,7 +4,13 @@ import Header from "../components/common/Header/Header";
 
 // props 값을 뿌려 주는 방식으로 하고 싶음
 // const LayoutPage = ({ children }) => {
-const LayoutPage = ({ Banner, BestProducts, Subscription, ProductList }) => {
+const LayoutPage = ({
+  Banner,
+  BestProducts,
+  Subscription,
+  ProductList,
+  EventBanner,
+}) => {
   return (
     <>
       <Header />
@@ -12,6 +18,7 @@ const LayoutPage = ({ Banner, BestProducts, Subscription, ProductList }) => {
       {BestProducts && <BestProducts />}
       {Subscription && <Subscription />}
       {ProductList && <ProductList />}
+      {EventBanner && <EventBanner />}
       <Footer />
     </>
   );
