@@ -169,8 +169,8 @@
 
 .productcount button {
     margin: 10px;
-    background-color: none;
-    border-color: none;
+    background-color: #f8f9fb;
+    border-color: #f8f9fb00;
     font-size: 2rem;
 }
 
@@ -228,6 +228,7 @@
     margin: 0 7px 0 0;
     background-color: white;
     border-width: 1px;
+    cursor: pointer;
 }
 
 .cartBtn {
@@ -235,6 +236,7 @@
     background-color: #313131;
     color: white;
     border: none;
+    cursor: pointer;
 }
 
 .buyBtn {
@@ -243,4 +245,5 @@
     background-color: #6c801a;
     color: white;
     border: none;
+    cursor: pointer;
 }
