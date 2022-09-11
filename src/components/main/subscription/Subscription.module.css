@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
+  max-width: 100%;
+}
+
+.subscribeContainer {
+  margin: 2em;
+  max-width: 75em;
+  width: 100%;
+  overflow: hidden;
+  text-align: center;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+}
+
+.title {
+  font-size: 1.7em;
+  font-weight: bold;
+  text-align: left;
+  padding-bottom: 0.5em;
+}
+
+.subTitle {
+  font-size: 1em;
+  text-align: left;
+  color: gray;
+  padding-bottom: 2em;
+}
+
+.btnAllInfo {
+  padding: 1.2em 5em;
+  background-color: transparent;
+  border: 1px solid lightgray;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
