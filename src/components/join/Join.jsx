@@ -24,25 +24,6 @@ function Join() {
     setSubscription(e.target.checked);
   };
 
-  // const onClickBtnHandler = () => {};
-
-  // const join = (email, password, userName, subscription) => {
-  //   instance
-  //     .post(`/api/member/signup`, {
-  //       email: email,
-  //       password: password,
-  //       userName: userName,
-  //       subscription: subscription,
-  //     })
-  //     .then((res) => {
-  //       const data = res.data;
-  //       console.log(data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   async function join(email, password, username, subscription) {
     try {
       console.log("시작:");
@@ -52,7 +33,7 @@ function Join() {
         username,
         subscription,
       });
-      console.log("성공:", res);
+      navigate("/login");
     } catch (error) {
       console.log("실패:", error);
       // const statusCode = error.response.status;

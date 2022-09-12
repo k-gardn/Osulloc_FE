@@ -7,6 +7,23 @@ export const instance = axios.create({
   },
 });
 
+instance.interceptors.request.use(
+  function (config) {
+    // 요청이 전달되기 전에 작업 수행
+    const accessToken = sessionStorage.getItem("Access_token");
+    const refreshToken = sessionStorage.getItem("Refresh_token");
+    if (accessToken !== null && refreshToken !== null) {
+      axios.defaults.headers.common["Authorization"] = `${accessToken}`; // 되겠지
+      axios.defaults.headers.common["Refresh-token"] = `${refreshToken}`;
+    }
+    return config;
+  },
+  function (error) {
+    // 요청 오류가 있는 작업 수행
+    return Promise.reject(error);
+  }
+);
+
 // access_token: setCookie("access_token"),
 // refresh_token: setCookie("refresh_token"),
 

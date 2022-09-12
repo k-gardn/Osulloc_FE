@@ -13,17 +13,24 @@ function Login() {
   const [password, setPassword, pwHandler] = useInput();
   const [cookies, setCookie, removeCookie] = useCookies();
 
-  // async function login(email, pw) {
-  //   try {
-  //     const reqdata = { email, pw };
-  //     const res = await instance.post(`/api/member/login`, reqdata);
-  //     const { accessToken } = res.data;
-  //     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
-  //     localStorage.setItem(email, email);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }
+  console.log(sessionStorage.getItem("Access_token"));
+
+  async function login(email, password) {
+    try {
+      const reqdata = { email, password };
+      console.log(reqdata);
+      const res = await instance.post(`/api/member/login`, reqdata);
+      console.log(res);
+      const accessToken = res.headers.authorization;
+      const refreshToken = res.headers["refresh-token"];
+      sessionStorage.setItem("Access_token", accessToken);
+      sessionStorage.setItem("Refresh_token", refreshToken);
+      localStorage.setItem(email, email);
+      navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
   // //API 요청 파일 분리 시도해보자
   // async function login(email, password) {
@@ -49,10 +56,14 @@ function Login() {
       .post(`/api/member/login`, reqdata)
       .then((res) => {
         const accessToken = res.headers.authorization;
+        const refreshToken = res.headers["refresh-token"];
         // 이부분 인터셉터로 도전해보자
-        axios.defaults.headers.common["Authorization"] = `${accessToken}`;
-        localStorage.setItem(email, email);
-        console.log("성공:", accessToken);
+        sessionStorage.setItem("Access_token", accessToken);
+        sessionStorage.setItem("Refresh_token", refreshToken);
+        // axios.defaults.headers.common["Authorization"] = `${accessToken}`;
+        // axios.defaults.headers.common["Refresh-token"] = `${refreshToken}`;
+        localStorage.setItem("email", email);
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
