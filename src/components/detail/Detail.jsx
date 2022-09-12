@@ -1,52 +1,55 @@
 import React, { useState } from "react";
 import styles from "../detail/Detail.module.css";
 import Breadcrumbs from "@mui/material/Breadcrumbs";
-import Typography from "@mui/material/Typography";
 import Link from "@mui/material/Link";
 import Stack from "@mui/material/Stack";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { styled } from "@mui/material/styles";
 import Grid from "@mui/material/Unstable_Grid2";
-import Paper from "@mui/material/Paper";
-import Box from "@mui/material/Box";
-import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
-import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+import { getdetail } from "../../redux/modules/detailSlice";
+import useInput from "../../hooks/useInput";
+import { postdetail } from "../../redux/modules/detailSlice";
 
 const Detail = () => {
-    // const clip = () => {
-    //     let url = '';
-    //     const textarea = document.createElement("textarea");
-    //     document.body.appendChild(textarea);
-    //     url = window.document.location.href;
-    //     textarea.value = url;
-    //     textarea.select();
-    //     document.execCommand("copy");
-    //     document.body.removeChild(textarea);
-    //   }
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const { id } = useParams();
 
-    // function copyTextUrl() {
-    //     // Browser compatibility 알림
-    //     if (!document.queryCommandSupported("copy")) {
-    //         alert("No Support");
-    //         return;
+    const [count, setCount] = useState(parseInt("1"));
+    const [pack, setPack] = useInput();
+    const [packPrice, setPackPrice] = useState(parseInt("0"));
+    console.log(pack);
+    //     { value: "", name: "포장 가능(+2000원)" },
+    //     { value: false, name: "포장 안함" },
+    //     { value: true, name: "포장 함" },
+    // ];   // const options = [
+
+    // const pay = (money) => {
+    //     // let money = 0;
+    //     if (pack === true) {
+    //         return (money = data[0].price + 2000);
+    //     } else {
+    //         return (money = data[0].price);
     //     }
-
-    //     // 선택 후 복사
-    //     copyLinkRef.current.focus();
-    //     copyLinkRef.current.select();
-    //     document.execCommand('copy');
-
-    //     // 복사 완료 알림
-    //     alert("링크를 복사했습니다.");
-    // }
+    // };
+    const selectPackHandler = (e) => {
+        setPack(e.target.value);
+        if (pack === false) {
+            setPackPrice(parseInt("2000"));
+        } else {
+            setPackPrice(parseInt("0"));
+        }
+    };
 
     function handleClick(event) {
         event.preventDefault();
         console.info("You clicked a breadcrumb.");
     }
+
     const breadcrumbs = [
         <Link
             underline="hover"
@@ -67,23 +70,29 @@ const Detail = () => {
             티 세트
         </Link>,
     ];
+    // const [age, setAge] = useState("");
+    // const handleChange = (event) => {
+    //     setAge(event.target.value);
+    // };
 
-    const Item = styled(Paper)(({ theme }) => ({
-        backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-        ...theme.typography.body2,
-        padding: theme.spacing(1),
-        textAlign: "center",
-        color: theme.palette.text.secondary,
-    }));
-    const [age, setAge] = useState("");
-    const [pack, setpack] = useState("");
+    const detail = useSelector((state) => state.detail);
+    const data = detail?.detail;
+    // console.log(data.name);
+    // console.log(data[0]?.price * count + packPrice);
 
-    const handleChange = (event) => {
-        setAge(event.target.value);
-    };
+    useEffect(() => {
+        dispatch(getdetail(id));
+    }, [dispatch]);
 
-    const packhandleChange = (event) => {
-        setpack(event.target.value);
+    const cartHandler = (e) => {
+        e.preventDefault();
+        const cart = {
+            productId: id,
+            count,
+            pack,
+        };
+        dispatch(postdetail(cart));
+        // return navigate("/cart");
     };
 
     return (
@@ -102,7 +111,6 @@ const Detail = () => {
                                     <div className={styles.items}>
                                         <span>💍 뷰티포인트</span>
                                     </div>
-
                                     <div className={styles.items}>
                                         <span>🍀 찻잎 450p 적립</span>
                                     </div>
@@ -131,12 +139,10 @@ const Detail = () => {
                                 </Breadcrumbs>
                             </Stack>
                             <p className={styles.productName}>
-                                시크릿 티 스토리
+                                {data[0]?.name}
                             </p>
                             <p className={styles.produtContent}>
-                                신비로운 섬 제주의 다채로운 향기와 이야기를
-                                품은, 취향 걱정없이 선물하기 좋은 고급스러운
-                                구성의 선물 세트
+                                {data[0]?.content}
                             </p>
                             <div>
                                 <div className={styles.btnAndPriceBox}>
@@ -149,18 +155,19 @@ const Detail = () => {
                                             {" "}
                                         </button>
                                     </div>
-                                    <p>45000원</p>
+                                    <p>{data[0]?.price}</p>
                                 </div>
-                                <Grid>
+                                {/* <Grid>
                                     <FormControl
                                         className={styles.addproducts}
                                         sx={{ m: 0, minWidth: 120 }}
                                         fullWidth
                                         margin="normal"
                                     >
+                                        TODO: 보여주기식으로 놔두거나, 없앨 예정!!
                                         <Select
                                             value={age}
-                                            onChange={handleChange}
+                                            // onChange={handleChange}
                                             displayEmpty
                                             inputProps={{
                                                 "aria-label": "Without label",
@@ -178,9 +185,8 @@ const Detail = () => {
                                                 <span>20000원</span>
                                             </MenuItem>
                                         </Select>
-                                        {/* <FormHelperText>Without label</FormHelperText> */}
                                     </FormControl>
-                                </Grid>
+                                </Grid> */}
 
                                 <div>
                                     <div className={styles.productbottombox}>
@@ -189,15 +195,29 @@ const Detail = () => {
                                             <div
                                                 className={styles.productcount}
                                             >
-                                                <button>-</button>
+                                                <button
+                                                    onClick={() => {
+                                                        if (count > 1) {
+                                                            setCount(count - 1);
+                                                        }
+                                                    }}
+                                                >
+                                                    -
+                                                </button>
                                                 <span
                                                     style={{
                                                         fontSize: "1.5rem",
                                                     }}
                                                 >
-                                                    2
+                                                    {count}
                                                 </span>
-                                                <button>+</button>
+                                                <button
+                                                    onClick={() => {
+                                                        setCount(count + 1);
+                                                    }}
+                                                >
+                                                    +
+                                                </button>
                                             </div>
                                         </div>
                                         <div className={styles.package}>
@@ -207,7 +227,7 @@ const Detail = () => {
                                             >
                                                 <Select
                                                     value={pack}
-                                                    onChange={packhandleChange}
+                                                    onChange={selectPackHandler}
                                                     displayEmpty
                                                     inputProps={{
                                                         "aria-label":
@@ -219,12 +239,11 @@ const Detail = () => {
                                                             포장 가능(+2000원)
                                                         </em>
                                                     </MenuItem>
-
-                                                    <MenuItem value={10}>
-                                                        포장안함
+                                                    <MenuItem value={false}>
+                                                        포장 안함
                                                     </MenuItem>
-                                                    <MenuItem value={20}>
-                                                        포장함
+                                                    <MenuItem value={true}>
+                                                        포장 함
                                                     </MenuItem>
                                                 </Select>
                                             </FormControl>
@@ -248,17 +267,26 @@ const Detail = () => {
                                                 상품금액합계
                                             </span>
                                             <span className={styles.totalPrice}>
-                                                76,000원
+                                                {data[0]?.price * count +
+                                                    packPrice}
                                             </span>
                                         </div>
                                         <div className={styles.buyBtnSet}>
                                             <button className={styles.giftBtn}>
                                                 선물하기
                                             </button>
-                                            <button className={styles.cartBtn}>
+                                            <button
+                                                onClick={cartHandler}
+                                                className={styles.cartBtn}
+                                            >
                                                 장바구니
                                             </button>
-                                            <button className={styles.buyBtn}>
+                                            <button
+                                                // onClick={alert(
+                                                //     "구매 하시겠습니까?"
+                                                // )}
+                                                className={styles.buyBtn}
+                                            >
                                                 바로구매
                                             </button>
                                         </div>
