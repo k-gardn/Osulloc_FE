@@ -57,7 +57,6 @@ const CartLeeseul = () => {
         return { ...obj, isChecked: value };
       });
     });
-    console.log("carList > ", cartList);
     setTotalCheckboxisChecked(value);
   };
 
