@@ -5,11 +5,14 @@ import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
 import "swiper/css"; //basic
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { useState } from "react";
 
 SwiperCore.use([Autoplay]);
 SwiperCore.use([Navigation, Pagination]);
 
 const Banner = () => {
+  const [BANNER_IMG_PRODUCTS, SetBANNER_IMG_PRODUCTS] = useState("");
+
   const BANNER_IMG_1 =
     "https://www.osulloc.com/upload/kr/ko/adminImage/EZ/IV/20220705112053996OM.png?quality=80";
   const BANNER_IMG_2 =
@@ -20,6 +23,14 @@ const Banner = () => {
     "https://www.osulloc.com/upload/kr/ko/adminImage/CF/HD/20220825164210367CA.png?quality=80";
 
   const bannerImgs = [BANNER_IMG_1, BANNER_IMG_2, BANNER_IMG_3, BANNER_IMG_4];
+
+  const url = window.location.href;
+
+  // if (url.split("/")[3] === "products") {
+  //   SetBANNER_IMG_PRODUCTS(
+  //     "https://www.osulloc.com/kr/ko/static_cdj/images/catBanner/banner_m_teaprod.jpg"
+  //   );
+  // }
 
   const width = window.outerWidth;
   console.log("width ?", width);

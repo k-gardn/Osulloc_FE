@@ -10,6 +10,7 @@ const LayoutPage = ({
   Subscription,
   ProductList,
   EventBanner,
+  CartLeeseul,
 }) => {
   return (
     <>
@@ -19,6 +20,7 @@ const LayoutPage = ({
       {Subscription && <Subscription />}
       {ProductList && <ProductList />}
       {EventBanner && <EventBanner />}
+      {CartLeeseul && <CartLeeseul />}
       <Footer />
     </>
   );

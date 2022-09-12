@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+}
+
+.img {
+  width: 100px;
+}
+
+.info {
+  margin-left: 1em;
+}
+
+.cntBox {
+}

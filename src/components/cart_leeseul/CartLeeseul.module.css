@@ -1,0 +1,21 @@
+.container {
+  margin-top: 80px;
+}
+.cartContainer {
+  display: flex;
+  justify-content: center;
+  width: 70%;
+  margin: auto;
+}
+
+.cartPriceBox {
+  border: 1px solid black;
+  width: 400px;
+  height: 400px;
+  padding: 2em;
+}
+
+.cartPriceText {
+  display: flex;
+  justify-content: space-between;
+}
