@@ -1,15 +1,12 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { instance } from "../../network/request";
 
-export const getBestProducts = createAsyncThunk(
-  "GET_BEST_PRODUCTS",
-  async () => {
-    const res = await instance.get(`/api/main`);
-    // const res = await instance.get(`/products`); // 임시 🐥
-    console.log("best product > ", res.data);
-    return res.data.isSuccess ? res.data.data : res.data.error;
-  }
-);
+export const getBestProducts = createAsyncThunk("GET_BEST_PRODUCTS", async () => {
+  const res = await instance.get(`/api/main`);
+  // const res = await instance.get(`/products`); // 임시 🐥
+  console.log("best product > ", res.data);
+  return res.data.isSuccess ? res.data.data : res.data.error;
+});
 
 export const getProducts = createAsyncThunk("GET_PRODUCTS", async () => {
   const res = await instance.get(`/api/main/products`);
