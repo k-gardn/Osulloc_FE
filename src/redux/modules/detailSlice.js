@@ -7,9 +7,9 @@ export const getdetail = createAsyncThunk(
     async (product_id, thunkAPI) => {
         console.log("ddd");
         try {
-            //   const res = await instance.get(`api/main/products/${product_id}`);
-            const res = await instance.get(`/detail`);
-            console.log("slice", res.data);
+            const res = await instance.get(`api/main/products/${product_id}`);
+            // const res = await instance.get(`/detail`);
+            // console.log("slice", res.data);
             return thunkAPI.fulfillWithValue(res.data);
         } catch (error) {
             return thunkAPI.rejectWithValue(error);
@@ -22,9 +22,9 @@ export const postdetail = createAsyncThunk(
     "POST_DETAIL_PRODUCT",
     async (payload, thunkAPI) => {
         try {
-            //   const res = await instance.get(`/api/auth/main/products/cart`);
-            const res = await instance.post(`/cart`, payload);
-            console.log("slice", res.data);
+            const res = await instance.get(`/api/auth/main/products/cart`);
+            // const res = await instance.post(`/cart`, payload);
+            // console.log("slice", res.data);
             return thunkAPI.fulfillWithValue(res.data);
         } catch (error) {
             return thunkAPI.rejectWithValue(error);

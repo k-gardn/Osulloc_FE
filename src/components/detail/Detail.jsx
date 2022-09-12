@@ -20,54 +20,29 @@ const Detail = () => {
     const { id } = useParams();
 
     const [count, setCount] = useState(parseInt("1"));
-    const [pack, setPack] = useInput();
-    const [packPrice, setPackPrice] = useState(parseInt("0"));
-    console.log(pack);
-    //     { value: "", name: "포장 가능(+2000원)" },
-    //     { value: false, name: "포장 안함" },
-    //     { value: true, name: "포장 함" },
-    // ];   // const options = [
+    const [pack, setPack] = useInput("");
+    const [packPrice, setPackPrice] = useState("");
 
-    // const pay = (money) => {
-    //     // let money = 0;
-    //     if (pack === true) {
-    //         return (money = data[0].price + 2000);
-    //     } else {
-    //         return (money = data[0].price);
-    //     }
-    // };
     const selectPackHandler = (e) => {
+        e.preventDefault();
         setPack(e.target.value);
-        if (pack === false) {
-            setPackPrice(parseInt("2000"));
-        } else {
-            setPackPrice(parseInt("0"));
-        }
     };
+    console.log(pack, packPrice);
 
-    function handleClick(event) {
-        event.preventDefault();
-        console.info("You clicked a breadcrumb.");
-    }
+    useEffect(() => {
+        if (pack === true) {
+            return setPackPrice(parseInt("2000"));
+        } else {
+            return setPackPrice(parseInt("0"));
+        }
+    }, [pack]);
 
     const breadcrumbs = [
-        <Link
-            underline="hover"
-            key="1"
-            color="inherit"
-            href="/"
-            onClick={handleClick}
-        >
-            티제품
+        <Link underline="hover" key="1" color="inherit" href="/">
+            Home
         </Link>,
-        <Link
-            underline="hover"
-            key="2"
-            color="inherit"
-            href="/material-ui/getting-started/installation/"
-            onClick={handleClick}
-        >
-            티 세트
+        <Link underline="hover" key="2" color="inherit" href="/products/:id">
+            product
         </Link>,
     ];
     // const [age, setAge] = useState("");
@@ -77,7 +52,7 @@ const Detail = () => {
 
     const detail = useSelector((state) => state.detail);
     const data = detail?.detail;
-    // console.log(data.name);
+    console.log(data?.content);
     // console.log(data[0]?.price * count + packPrice);
 
     useEffect(() => {
@@ -92,7 +67,7 @@ const Detail = () => {
             pack,
         };
         dispatch(postdetail(cart));
-        // return navigate("/cart");
+        return navigate("/cart");
     };
 
     return (
@@ -104,7 +79,7 @@ const Detail = () => {
                             <div className={styles.imgbox}>
                                 <img
                                     className={styles.img}
-                                    src="https://www.osulloc.com/upload/kr/ko/adminImage/JY/QU/20210825170710069ZN.png?quality=80"
+                                    src={data.img1}
                                     alt=""
                                 />
                                 <div className={styles.buyer_benefits}>
@@ -138,11 +113,9 @@ const Detail = () => {
                                     {breadcrumbs}
                                 </Breadcrumbs>
                             </Stack>
-                            <p className={styles.productName}>
-                                {data[0]?.name}
-                            </p>
+                            <p className={styles.productName}>{data?.name}</p>
                             <p className={styles.produtContent}>
-                                {data[0]?.content}
+                                {data?.content}
                             </p>
                             <div>
                                 <div className={styles.btnAndPriceBox}>
@@ -155,7 +128,7 @@ const Detail = () => {
                                             {" "}
                                         </button>
                                     </div>
-                                    <p>{data[0]?.price}</p>
+                                    <p>{data?.price}</p>
                                 </div>
                                 {/* <Grid>
                                     <FormControl
@@ -267,7 +240,7 @@ const Detail = () => {
                                                 상품금액합계
                                             </span>
                                             <span className={styles.totalPrice}>
-                                                {data[0]?.price * count +
+                                                {data?.price * count +
                                                     packPrice}
                                             </span>
                                         </div>

@@ -22,7 +22,7 @@
 .item_layout {
     position: relative;
     margin: auto;
-    height: 75vh;
+    height: 80vh;
     padding: 30px 43px 110px;
     background: #f8f9fb;
 }
@@ -35,32 +35,35 @@
 }
 .img {
     width: 100%;
+    margin: 10px;
     /* max-width: 100%; */
 }
 
 .buyer_benefits {
     /* border: solid 2px black; */
     display: flex;
+    flex-wrap: wrap;
     /* justify-items: start; */
     /* grid-template-columns: repeat(3, 160px); */
-    justify-content: space-around;
-    align-items: center;
+    justify-content: space-between;
+    /* height: 15vh; */
+    /* align-items: center; */
     position: absolute;
     bottom: 23px;
     left: 16px;
-    /* align-content: space-between; */
-    flex-wrap: wrap;
+    align-content: space-between;
     /* height: 10vh; */
     /* width: 100%; */
     font-size: 15px;
     color: #454242ad;
     margin: 6px;
-    padding: 0;
+    padding: 1.4rem;
     margin: auto;
 }
 
 .items {
     background-color: #ececec00;
+    margin: 3px;
 }
 
 .items span {
