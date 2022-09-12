@@ -3,40 +3,36 @@
   justify-content: center;
   margin: auto;
   max-width: 100%;
+  position: relative;
+  margin: 2em auto 2em auto;
 }
 
-.subscribeContainer {
+.eventImg {
   margin: 2em;
   max-width: 75em;
   width: 100%;
-  overflow: hidden;
+  height: 200px;
   text-align: center;
-}
-
-.box {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 3em;
+  object-fit: cover;
 }
 
 .title {
-  font-size: 1.7em;
+  position: absolute;
+  top: 30%;
+  color: white;
   font-weight: bold;
-  text-align: left;
-  padding-bottom: 0.5em;
+  font-size: 2em;
 }
 
-.subTitle {
-  font-size: 1em;
-  text-align: left;
-  color: gray;
-  padding-bottom: 2em;
-}
-
-.btnAllInfo {
-  padding: 1.2em 5em;
+.btnBook {
+  padding: 0.7em 2em;
+  position: absolute;
+  top: 50%;
+  color: white;
+  font-weight: bold;
   background-color: transparent;
   border: 1px solid lightgray;
+  margin-top: 1em;
   border-radius: 0.5em;
   cursor: pointer;
 }

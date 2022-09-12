@@ -1,34 +1,76 @@
-import React, { useRef } from "react";
-import useBrowserEvent from "../../hooks/useBrowerEvent";
+import React, { useEffect, useRef } from "react";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import styles from "./Productitem.module.css";
+import { useDispatch } from "react-redux";
+import {
+  productDetail,
+  addCart,
+  deleteCart,
+} from "../../redux/modules/productSlice";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProductItem = ({ product }) => {
   const { productId, name, price, img1, img2 } = product;
 
   const cardRef = useRef();
+  const imgRef = useRef();
 
-  const hoverEvent = () => {
-    alert("호버");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const goToDetail = () => {
+    navigate(`/products/${productId}`);
   };
 
-  const bb = document.querySelector(".ddd");
+  useEffect(() => {
+    cardRef?.current.addEventListener(
+      "mouseover",
+      () => (imgRef.current.src = img2)
+    );
+    return cardRef?.current.removeEventListener("mouseover", () => {});
+  });
 
-  console.log("bb :>> ", bb);
+  useEffect(() => {
+    cardRef?.current.addEventListener(
+      "mouseout",
+      () => (imgRef.current.src = img1)
+    );
+    return cardRef?.current.removeEventListener("mouseout", () => {});
+  });
 
-  //   bb.addEventListener("hover", hoverEvent);
-
-  //   useBrowserEvent("hover", hoverEvent)
-
-  //   cardRef.current.addEventListener(hoverEvent);
+  const addCartProduct = async () => {
+    const result = await dispatch(addCart({ productId })).then(
+      (res) => res.payload
+    );
+    console.log("result", result);
+    if (result) {
+      // TODO: confirm 으로 장바구니로 이동할 껀지 물어 보기
+      alert("장바구니에 추가 됐습니다.");
+    } else {
+      const deletedResult = await dispatch(deleteCart(productId)).then(
+        (res) => res.payload
+      );
+      if (deletedResult) {
+        alert("장바구니에서 삭제했습니다.");
+      }
+    }
+  };
 
   return (
-    <div>
-      <div className={styles.card} class="ddd" ref={cardRef}>
-        <img className={styles.img} src={img1} alt="productImg" />
-        <div className={styles.info}>
-          <p className={styles.name}>{name}</p>
-          <p className={styles.price}>{price}</p>
-        </div>
+    <div className={styles.card} ref={cardRef}>
+      <img
+        className={styles.img}
+        ref={imgRef}
+        src={img1}
+        onClick={goToDetail}
+        alt="productImg"
+      />
+      <div className={styles.btnCart} onClick={addCartProduct}>
+        <AddShoppingCartIcon />
+      </div>
+      <div className={styles.info}>
+        <p className={styles.name}>{name}</p>
+        <p className={styles.price}>{price}</p>
       </div>
     </div>
   );
