@@ -4,39 +4,66 @@ import useInput from "../../hooks/useInput";
 import styles from "./Login.module.css";
 import { useCookies } from "react-cookie";
 import { instance } from "../../network/request";
+import axios from "axios";
+import { validEmail, validPw } from "../join/Join";
 
 function Login() {
   const navigate = useNavigate();
   const [email, setEmail, emailHandler] = useInput();
-  const [pw, setPw, pwHandler] = useInput();
+  const [password, setPassword, pwHandler] = useInput();
   const [cookies, setCookie, removeCookie] = useCookies();
 
-  // 이메일: '@', '.'을 포함
-  const validEmail =
-    /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
-  // 비밀번호: 4~16자 영문, 숫자 조합
-  const validPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{4,16}$/;
-  console.log(validEmail.test(email));
+  // async function login(email, pw) {
+  //   try {
+  //     const reqdata = { email, pw };
+  //     const res = await instance.post(`/api/member/login`, reqdata);
+  //     const { accessToken } = res.data;
+  //     axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+  //     localStorage.setItem(email, email);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
 
-  async function login() {
-    try {
-      const res = await instance.post(`/api/member/login`, {
-        email,
-        pw,
+  // //API 요청 파일 분리 시도해보자
+  // async function login(email, password) {
+  //   const reqdata = { email, password };
+  //   instance
+  //     .post(`/api/member/login`, reqdata)
+  //     .then((res) => {
+  //       const { accessToken } = res.data;
+  //       // 이부분 인터셉터로 도전해보자
+  //       axios.defaults.headers.common["Authorization"] = `Bearer ${accessToken}`;
+  //       localStorage.setItem(email, email);
+  //       console.log("성공:", res.headers);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
+
+  //API 요청 파일 분리 시도해보자
+  async function login(email, password) {
+    const reqdata = { email, password };
+    instance
+      .post(`/api/member/login`, reqdata)
+      .then((res) => {
+        const accessToken = res.headers.authorization;
+        // 이부분 인터셉터로 도전해보자
+        axios.defaults.headers.common["Authorization"] = `${accessToken}`;
+        localStorage.setItem(email, email);
+        console.log("성공:", accessToken);
+      })
+      .catch((error) => {
+        console.log(error);
       });
-      const data = res.data;
-      console.log(data);
-      localStorage.setItem(email, email);
-    } catch (error) {
-      console.log(error);
-    }
   }
 
   const loginHandler = () => {
-    if (email === "" || pw === "") {
+    if (email === "" || password === "") {
       alert("이메일과 비밀번호를 입력하세요.");
-    } else if (validEmail.test(email) && validPw.test(pw)) {
-      login();
+    } else if (validEmail.test(email) && validPw.test(password)) {
+      login(email, password);
     } else {
       alert("이메일이나 비밀번호가 유효한 형식이 아닙니다.");
     }
@@ -46,7 +73,16 @@ function Login() {
     <div className={styles.background}>
       <div className={styles.loginbox}>
         <div className={styles.logo}>
-          <img src={"/osulloclogo.png"} alt="logo" width="280" height="200" />
+          <img
+            src={"/osulloclogo.png"}
+            alt="logo"
+            width="280"
+            height="200"
+            onClick={() => {
+              navigate("/");
+            }}
+            style={{ cursor: "pointer" }}
+          />
         </div>
         <div className={styles.inputbox}>
           <input
@@ -61,7 +97,7 @@ function Login() {
             placeholder="비밀번호 입력(4~16자 영문, 숫자 조합)"
             title="password"
             type="password"
-            value={pw}
+            value={password}
             onChange={pwHandler}
           ></input>
           <button className={styles.loginBtn} onClick={loginHandler}>

@@ -4,34 +4,61 @@ import styles from "./Join.module.css";
 import useInput from "../../hooks/useInput";
 import { instance } from "../../network/request";
 
+// Email: '@', '.' 포함
+export const validEmail =
+  /([\w-.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+// 비밀번호: 4~16자 영문, 숫자 조합
+export const validPw = /^(?=.*\d)(?=.*[a-zA-Z])[0-9a-zA-Z]{4,16}$/;
+// 이름: 2~15자 한글
+export const validName = /^[가-힣]{2,15}$/;
+
 function Join() {
   const navigate = useNavigate();
-  const [userName, setUserName, userNameHandler] = useInput("");
-  const [subscribe, setSubscribe] = useState(false);
+  const [username, setUsername, usernameHandler] = useInput("");
+  const [subscription, setSubscription] = useState(false);
   const [email, setEmail, emailHandler] = useInput("");
-  const [pw, setPw, pwHandler] = useInput("");
+  const [password, setPassword, passwordHandler] = useInput("");
   const [repw, setRepw, repwHandler] = useInput("");
 
   const subscribeHandler = (e) => {
-    setSubscribe(e.target.checked);
+    setSubscription(e.target.checked);
   };
 
-  async function join(email, pw, userName, subscribe) {
+  // const onClickBtnHandler = () => {};
+
+  // const join = (email, password, userName, subscription) => {
+  //   instance
+  //     .post(`/api/member/signup`, {
+  //       email: email,
+  //       password: password,
+  //       userName: userName,
+  //       subscription: subscription,
+  //     })
+  //     .then((res) => {
+  //       const data = res.data;
+  //       console.log(data);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
+
+  async function join(email, password, username, subscription) {
     try {
+      console.log("시작:");
       const res = await instance.post(`/api/member/signup`, {
         email,
-        pw,
-        userName,
-        subscribe,
+        password,
+        username,
+        subscription,
       });
-      const data = res.data;
-      console.log(data);
+      console.log("성공:", res);
     } catch (error) {
-      console.log(error.response);
-      const statusCode = error.response.status;
-      const statusText = error.response.statusText;
-      const msg = error.response.data.message[0];
-      alert(`${statusCode}` - `${statusText}` - `${msg}`);
+      console.log("실패:", error);
+      // const statusCode = error.response.status;
+      // const statusText = error.response.statusText;
+      // const msg = error.response.data.message[0];
+      // alert(`${statusCode}` - `${statusText}` - `${msg}`);
     }
   }
 
@@ -60,15 +87,15 @@ function Join() {
                 className={styles.input}
                 placeholder="이름을 입력하세요."
                 title="username"
-                value={userName}
-                onChange={userNameHandler}
+                value={username}
+                onChange={usernameHandler}
                 style={{ width: "181px", marginRight: "20px" }}
               ></input>
               <label className={styles.label}>
                 <input
                   title="subscribe"
                   type="checkbox"
-                  value={subscribe}
+                  value={subscription}
                   onChange={subscribeHandler}
                   style={{ margin: "3px 9px 3px 4px" }}
                 />
@@ -83,21 +110,33 @@ function Join() {
               ></input>
               <input
                 className={styles.input}
-                placeholder="비밀번호 입력(영문, 숫자, 특수문자 조합)"
+                placeholder="비밀번호 입력(4~16자 영문, 숫자 조합)"
                 title="password"
                 type="password"
-                value={pw}
-                onChange={pwHandler}
+                value={password}
+                onChange={passwordHandler}
               ></input>
               <input
                 className={styles.input}
-                placeholder="비밀번호 확인(영문, 숫자, 특수문자 조합)"
+                placeholder="비밀번호 확인(4~16자 영문, 숫자 조합)"
                 title="repassword"
                 type="password"
                 value={repw}
                 onChange={repwHandler}
               ></input>
-              <button className={styles.joinBtn}>회원가입</button>
+              <button
+                className={styles.joinBtn}
+                onClick={() => join(email, password, username, subscription)}
+                disabled={
+                  password !== repw ||
+                  !validName.test(username) ||
+                  !validEmail.test(email) ||
+                  !validPw.test(password) ||
+                  !validPw.test(repw)
+                }
+              >
+                회원가입
+              </button>
             </div>
           </div>
         </div>

@@ -116,9 +116,10 @@
   font-weight: bold;
 }
 
-.joinBtn:hover {
+.joinBtn:enabled {
   background-color: #6c7f1a;
   color: beige;
   font-size: 1.1rem;
   font-weight: bold;
+  cursor: pointer;
 }
