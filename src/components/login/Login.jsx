@@ -13,8 +13,6 @@ function Login() {
   const [password, setPassword, pwHandler] = useInput();
   const [cookies, setCookie, removeCookie] = useCookies();
 
-  console.log(sessionStorage.getItem("Access_token"));
-
   async function login(email, password) {
     try {
       const reqdata = { email, password };
