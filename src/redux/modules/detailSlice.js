@@ -21,10 +21,13 @@ export const getdetail = createAsyncThunk(
 export const postdetail = createAsyncThunk(
   "POST_DETAIL_PRODUCT",
   async (payload, thunkAPI) => {
+    console.log("POST_DETAIL_PRODUCT payload :>> ", payload);
+
     try {
       const res = await instance.post(`/api/auth/main/products/cart`, payload);
       // const res = await instance.post(`/cart`, payload);
       // console.log("slice", res.data);
+
       return thunkAPI.fulfillWithValue(
         res.data.success ? res.data : res.data.error
       );
@@ -46,11 +49,11 @@ const detailSlice = createSlice({
       // console.log(action.payload.data);
     },
 
-    // TODO: postdetail post.
+    //TODO: postdetail post.
     // [postdetail.fulfilled]: (state, action) => {
-    //   state.success = false;
-    //   state.cart.push(action.payload);
-    //   console.log(action.payload);
+    //   // state.success = false;
+    //   console.log("action.payload", action.payload);
+    //   state.detail.push(action.payload);
     // },
   },
 });

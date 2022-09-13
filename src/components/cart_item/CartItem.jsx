@@ -22,9 +22,9 @@ const CartItem = ({ item, onChangeProps }) => {
 
   useEffect(() => {
     if (pack === true) {
-      return setWrapping("포장 부가서비스");
+      return setWrapping("포장 안함");
     } else {
-      return setWrapping("포장 가능");
+      return setWrapping("포장 함");
     }
   }, [cartCountChange]);
 
@@ -86,7 +86,6 @@ const CartItem = ({ item, onChangeProps }) => {
         <div className={styles.info}>
           <p>{name}</p>
           <p>{wrapping}</p>
-          <p>선물 가능한 상품입니다</p>
         </div>
         <div className={styles.cntBox}>
           <button onClick={amountDecreaseHandler} disabled={!isBtnValid}>

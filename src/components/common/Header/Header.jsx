@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useDispatch } from "react-redux";
@@ -8,21 +8,29 @@ import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Fade from "@mui/material/Fade";
+import Badge, { BadgeProps } from "@mui/material/Badge";
+import { styled } from "@mui/material/styles";
+import IconButton from "@mui/material/IconButton";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 
 const Header = () => {
   // const user = useSelector((store) => store.auth.user);
-  const nickname = localStorage.getItem("nickname");
   // const [username, setUsername] = useState();
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [visibleBtn, setVisibleBtn] = useState(true);
+  // const [myCartNum, setMyCartNum] = useState(0);
 
   const LOGO_IMG =
     "https://www.osulloc.com/kr/ko/static_cdj/images/main/logo_white.png";
 
   const loginUser = localStorage.getItem("email");
+  const myCartNum = localStorage.getItem("myCartNum");
+
+  // if (getMyCartNum === -1) {
+  //   setMyCartNum(3);
+  // }
 
   useEffect(() => {
     if (loginUser) {
@@ -55,7 +63,7 @@ const Header = () => {
     window.location.replace("/");
   };
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -77,6 +85,9 @@ const Header = () => {
           <button className={styles.cartBtn} onClick={goCart}>
             <ShoppingCartOutlinedIcon />
           </button>
+          <div className={styles.myCartNum}>
+            {myCartNum === -1 ? 0 : myCartNum}
+          </div>
           {visibleBtn ? (
             <div>
               <Button onClick={handleClick}>
