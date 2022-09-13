@@ -1,0 +1,115 @@
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import styles from "./Header.module.css";
+import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../network/request";
+import { useEffect } from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+
+const Header = () => {
+  // const user = useSelector((store) => store.auth.user);
+  const nickname = localStorage.getItem("nickname");
+  // const [username, setUsername] = useState();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const [visibleBtn, setVisibleBtn] = useState(true);
+
+  const LOGO_IMG =
+    "https://www.osulloc.com/kr/ko/static_cdj/images/main/logo_white.png";
+
+  const loginUser = localStorage.getItem("email");
+
+  useEffect(() => {
+    if (loginUser) {
+      setVisibleBtn(false);
+    }
+  }, []);
+
+  // TODO: logout 함수
+  const onLogout = () => {
+    if (window.confirm("로그아웃 하시겠습니까?")) {
+      logout();
+      setVisibleBtn(true);
+      console.log("visibleBtn logoout :>> ", visibleBtn);
+    } else {
+    }
+  };
+
+  const onLogin = () => {
+    navigate("/login");
+  };
+
+  const goCart = () => {
+    navigate("/cart");
+  };
+
+  const goHome = () => {
+    window.location.replace("/");
+  };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  return (
+    <div>
+      <header className={styles.header}>
+        <img
+          className={styles.logoImg}
+          src={LOGO_IMG}
+          alt="logo"
+          onClick={goHome}
+        />
+        <div className={styles.navigation}>
+          <button className={styles.cartBtn} onClick={goCart}>
+            <ShoppingCartOutlinedIcon />
+          </button>
+          {visibleBtn ? (
+            // <p className={styles.link} onClick={onLogin}>
+            //   로그인
+            // </p>
+            <div>
+              <Button
+                id="basic-button"
+                aria-controls={open ? "basic-menu" : undefined}
+                aria-haspopup="true"
+                aria-expanded={open ? "true" : undefined}
+                onClick={handleClick}
+              >
+                Dashboard
+              </Button>
+              <Menu
+                id="basic-menu"
+                anchorEl={anchorEl}
+                open={open}
+                onClose={handleClose}
+                MenuListProps={{
+                  "aria-labelledby": "basic-button",
+                }}
+              >
+                <MenuItem onClick={handleClose}>Profile</MenuItem>
+                <MenuItem onClick={handleClose}>My account</MenuItem>
+                <MenuItem onClick={handleClose}>Logout</MenuItem>
+              </Menu>
+            </div>
+          ) : (
+            <p className={styles.link} onClick={onLogout}>
+              로그아웃
+            </p>
+          )}
+        </div>
+      </header>
+    </div>
+  );
+};
+
+export default Header;
