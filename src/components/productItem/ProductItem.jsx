@@ -1,13 +1,11 @@
 import React, { useEffect, useRef } from "react";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import styles from "./Productitem.module.css";
 import { useDispatch } from "react-redux";
-import {
-  productDetail,
-  addCart,
-  deleteCart,
-} from "../../redux/modules/productSlice";
-import { useNavigate, useParams } from "react-router-dom";
+import { addCart, deleteCart } from "../../redux/modules/productSlice";
+import { useNavigate } from "react-router-dom";
+import ToggleButton from "@mui/material/ToggleButton";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 
 const ProductItem = ({ product }) => {
   const { productId, name, price, img1, img2 } = product;
@@ -19,6 +17,7 @@ const ProductItem = ({ product }) => {
   const navigate = useNavigate();
 
   const loginUser = localStorage.getItem("email");
+  const [selected, setSelected] = React.useState(false);
 
   const goToDetail = () => {
     navigate(`/products/${productId}`);
@@ -68,7 +67,16 @@ const ProductItem = ({ product }) => {
       />
       {loginUser ? (
         <div className={styles.btnCart} onClick={addCartProduct}>
-          <AddShoppingCartIcon />
+          <ToggleButton
+            value="check"
+            selected={selected}
+            onChange={() => {
+              setSelected(!selected);
+            }}
+          >
+            {selected ? <IndeterminateCheckBoxIcon /> : <AddCircleIcon />}
+          </ToggleButton>
+          );
         </div>
       ) : (
         ""

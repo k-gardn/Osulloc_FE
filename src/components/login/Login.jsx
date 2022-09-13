@@ -23,6 +23,7 @@ function Login() {
         sessionStorage.setItem("Access_token", accessToken);
         sessionStorage.setItem("Refresh_token", refreshToken);
         localStorage.setItem("email", email);
+        localStorage.setItem("myCartNum", res.data.myCartNum);
         navigate("/");
       }
     } catch (error) {

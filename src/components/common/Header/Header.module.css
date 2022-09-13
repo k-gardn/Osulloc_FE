@@ -8,7 +8,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0 5em 0 5em;
-  background: linear-gradient(to bottom, darkgrey, transparent);
+  background: linear-gradient(to bottom, lightgrey, transparent);
   z-index: 10;
 }
 
@@ -19,8 +19,8 @@
 .navigation {
   display: flex;
   align-items: center;
-  /* width: 30%; */
   text-align: right;
+  position: relative;
 }
 
 .cartBtn {
@@ -30,7 +30,19 @@
   border: 0;
 }
 
-.headerBtn {
+.myCartNum {
+  background-color: whitesmoke;
+  color: black;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 0em;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  position: absolute;
+  top: -10px;
+  left: 15px;
 }
 
 .link {
