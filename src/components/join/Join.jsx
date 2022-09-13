@@ -14,51 +14,28 @@ export const validName = /^[가-힣]{2,15}$/;
 
 function Join() {
   const navigate = useNavigate();
-  const [username, setUsername, usernameHandler] = useInput("");
+  const [username, , usernameHandler] = useInput("");
   const [subscription, setSubscription] = useState(false);
-  const [email, setEmail, emailHandler] = useInput("");
-  const [password, setPassword, passwordHandler] = useInput("");
-  const [repw, setRepw, repwHandler] = useInput("");
+  const [email, , emailHandler] = useInput("");
+  const [password, , passwordHandler] = useInput("");
+  const [repw, , repwHandler] = useInput("");
 
   const subscribeHandler = (e) => {
     setSubscription(e.target.checked);
   };
 
-  // const onClickBtnHandler = () => {};
-
-  // const join = (email, password, userName, subscription) => {
-  //   instance
-  //     .post(`/api/member/signup`, {
-  //       email: email,
-  //       password: password,
-  //       userName: userName,
-  //       subscription: subscription,
-  //     })
-  //     .then((res) => {
-  //       const data = res.data;
-  //       console.log(data);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // };
-
   async function join(email, password, username, subscription) {
     try {
-      console.log("시작:");
       const res = await instance.post(`/api/member/signup`, {
         email,
         password,
         username,
         subscription,
       });
-      console.log("성공:", res);
+      console.log(res);
+      navigate("/login");
     } catch (error) {
-      console.log("실패:", error);
-      // const statusCode = error.response.status;
-      // const statusText = error.response.statusText;
-      // const msg = error.response.data.message[0];
-      // alert(`${statusCode}` - `${statusText}` - `${msg}`);
+      console.log(error);
     }
   }
 
