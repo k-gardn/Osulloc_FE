@@ -1,4 +1,28 @@
+.container {
+    margin-top: 80px;
+}
+
+.deleteBtn {
+    background-color: rgba(240, 248, 255, 0);
+    border: rgba(240, 248, 255, 0);
+    cursor: pointer;
+}
+
 .cartContainer {
-    border: solid 2px blue;
-    padding-top: 10rem;
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    margin: auto;
+}
+
+.cartPriceBox {
+    border: 1px solid black;
+    width: 400px;
+    height: 400px;
+    padding: 2em;
+}
+
+.cartPriceText {
+    display: flex;
+    justify-content: space-between;
 }

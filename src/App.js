@@ -7,23 +7,21 @@ import Login from "./components/login/Login";
 import Join from "./components/join/Join";
 import DetailPage from "./pages/DetailPage";
 import CartPage from "./pages/CartPage";
-import CartLeeseulPage from "./pages/CartLeeseulPage";
 
 function App() {
-  return (
-    <CookiesProvider>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/join" element={<Join />} />
-          <Route path="/cart" element={<CartPage />} />
-          <Route path="/products" element={<ProductList />} />
-          <Route path="/products/:id" element={<DetailPage />} />
-          <Route path="/cartleeseul" element={<CartLeeseulPage />} />
-        </Routes>
-      </BrowserRouter>
-    </CookiesProvider>
-  );
+    return (
+        <CookiesProvider>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<MainPage />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/join" element={<Join />} />
+                    <Route path="/cart" element={<CartPage />} />
+                    <Route path="/products" element={<ProductList />} />
+                    <Route path="/products/:id" element={<DetailPage />} />
+                </Routes>
+            </BrowserRouter>
+        </CookiesProvider>
+    );
 }
 export default App;

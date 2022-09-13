@@ -1,14 +1,9 @@
 import React from "react";
 import Cart from "../components/cart/Cart";
-import Header from "../components/common/Header/Header";
+import LayoutPage from "./LayoutPage";
 
 function CartPage() {
-    return (
-        <div>
-            <Header />
-            <Cart />
-        </div>
-    );
+    return <LayoutPage Cart={Cart} />;
 }
 
 export default CartPage;
