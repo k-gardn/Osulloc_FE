@@ -16,8 +16,8 @@ const Cart = () => {
 
   const [cartList, setCartList] = useState(cart);
 
-  useEffect(async () => {
-    const getproduct = await dispatch(getcart()).then((res) => res.payload);
+  useEffect(() => {
+    dispatch(getcart());
   }, [dispatch]);
 
   console.log("cartList", cart);
