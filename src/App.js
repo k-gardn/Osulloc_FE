@@ -22,7 +22,8 @@ function App() {
           <Route path="/products" element={<ProductList />} />
           <Route path="/products/:id" element={<DetailPage />} />
           <Route path="/cartleeseul" element={<CartLeeseulPage />} />
-          <Route path="/auth" element={<KakaoRedirect />} />
+          {/* <Route path="/auth" element={<KakaoRedirect />} /> */}
+          <Route path="/auth" element={<MainPage />} />
         </Routes>
       </BrowserRouter>
     </CookiesProvider>

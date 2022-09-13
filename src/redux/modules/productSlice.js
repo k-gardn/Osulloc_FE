@@ -1,6 +1,13 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { instance } from "../../network/request";
 
+// export const main = createAsyncThunk("MAIN", async (code) => {
+//   console.log("code :>> ", code);
+//   // const res = await instance.get(`?code=${code}`);
+//   const res = await instance.get(`/api/member/kakao/callback?code=${code}`);
+//   return res.data;
+// });
+
 export const getBestProducts = createAsyncThunk(
   "GET_BEST_PRODUCTS",
   async () => {
