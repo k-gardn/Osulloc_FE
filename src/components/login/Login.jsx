@@ -8,14 +8,8 @@ import { logout } from "../../network/request";
 
 function Login() {
   const navigate = useNavigate();
-<<<<<<< HEAD
-  const [email, setEmail, emailHandler] = useInput();
-  const [password, setPassword, pwHandler] = useInput();
-  const [cookies, setCookie, removeCookie] = useCookies();
-=======
   const [email, , emailHandler] = useInput();
   const [password, , pwHandler] = useInput();
->>>>>>> 2f26c7244c71c585949fbaf58ed088551cc58452
 
   async function login(email, password) {
     try {
