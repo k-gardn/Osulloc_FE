@@ -30,6 +30,7 @@ export const logout = async () => {
     sessionStorage.removeItem("Access_token");
     sessionStorage.removeItem("Refresh_token");
     localStorage.removeItem("email");
+    localStorage.removeItem("kakao");
     alert("로그아웃 되었습니다.");
   } catch (error) {
     console.log("에러:", error);

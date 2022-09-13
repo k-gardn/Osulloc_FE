@@ -24,6 +24,7 @@ function Login() {
         sessionStorage.setItem("Access_token", accessToken);
         sessionStorage.setItem("Refresh_token", refreshToken);
         localStorage.setItem("email", email);
+        localStorage.setItem("kakao", false);
         navigate("/");
       }
     } catch (error) {

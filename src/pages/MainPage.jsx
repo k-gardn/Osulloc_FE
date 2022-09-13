@@ -27,6 +27,7 @@ const MainPage = () => {
         const ACCESS_TOKEN = res.headers["access-token"];
         sessionStorage.setItem("token", ACCESS_TOKEN); //예시로 로컬에 저장함
         localStorage.setItem("email", res.data.data.email);
+        localStorage.setItem("kakao", true);
         navigate("/"); // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
       })
       .catch((err) => {
