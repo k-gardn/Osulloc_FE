@@ -1,39 +1,29 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { instance } from "../../network/request";
 
-export const getBestProducts = createAsyncThunk("GET_BEST_PRODUCTS", async () => {
-  const res = await instance.get(`/api/main`);
-  // const res = await instance.get(`/products`); // 임시 🐥
-  console.log("best product > ", res.data);
-  return res.data.isSuccess ? res.data.data : res.data.error;
-});
+export const getBestProducts = createAsyncThunk(
+  "GET_BEST_PRODUCTS",
+  async () => {
+    const res = await instance.get("/api/main");
+    return res.data.success ? res.data.data : res.data.error;
+  }
+);
 
 export const getProducts = createAsyncThunk("GET_PRODUCTS", async () => {
   const res = await instance.get(`/api/main/products`);
-  // const res = await instance.get(`/products`); // 임시 🐥
-  return res.data.isSuccess ? res.data.data : res.data.error;
+  return res.data.success ? res.data.data : res.data.error;
 });
 
 export const addCart = createAsyncThunk("ADD_CART", async (productId) => {
-  const res = await instance.post(`/api/auth/cart, productId`);
-  // const res = await instance.post(`/cart`, productId, {
-  // headers: {
-  //   Authorization: `${localStorage.getItem("Authorization")}`,
-  //   "Refresh-Token": `${localStorage.getItem("refreshToken")}`,
-  // },
-  // }); // 임시 🐥
-  return res.data.isSuccess;
+  console.log("productId :>> ", productId);
+  const res = await instance.post(`/api/auth/cart`, productId);
+  console.log("res.data :>> ", res.data);
+  return res.data.success;
 });
 
 export const deleteCart = createAsyncThunk("DELETE_CART", async (productId) => {
   const res = await instance.delete(`/api/auth/mycart/${productId}`);
-  // const res = await instance.delete(`/cart/${productId}`, {
-  // headers: {
-  //   Authorization: `${localStorage.getItem("Authorization")}`,
-  //   "Refresh-Token": `${localStorage.getItem("refreshToken")}`,
-  // },
-  // }); // 임시 🐥
-  return res.data.isSuccess;
+  return res.data.success;
 });
 
 const productSlice = createSlice({

@@ -18,6 +18,9 @@ const ProductItem = ({ product }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const loginUser = localStorage.getItem("email");
+  console.log("loginUser", loginUser);
+
   const goToDetail = () => {
     navigate(`/products/${productId}`);
   };
@@ -42,7 +45,6 @@ const ProductItem = ({ product }) => {
     const result = await dispatch(addCart({ productId })).then(
       (res) => res.payload
     );
-    console.log("result", result);
     if (result) {
       // TODO: confirm 으로 장바구니로 이동할 껀지 물어 보기
       alert("장바구니에 추가 됐습니다.");
@@ -65,9 +67,14 @@ const ProductItem = ({ product }) => {
         onClick={goToDetail}
         alt="productImg"
       />
-      <div className={styles.btnCart} onClick={addCartProduct}>
-        <AddShoppingCartIcon />
-      </div>
+      {loginUser ? (
+        <div className={styles.btnCart} onClick={addCartProduct}>
+          <AddShoppingCartIcon />
+        </div>
+      ) : (
+        ""
+      )}
+
       <div className={styles.info}>
         <p className={styles.name}>{name}</p>
         <p className={styles.price}>{price}</p>

@@ -8,15 +8,16 @@ import { useNavigate } from "react-router-dom";
 
 const BestProducts = () => {
   const bestProducts = useSelector((store) => store.product.bestProducts);
+
   const productsRef = useRef();
-  // const productsBox = useRef();
+  const productsBox = useRef();
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getBestProducts());
-  }, [dispatch]);
+  }, []);
 
   const allProducts = () => {
     navigate("/products");
