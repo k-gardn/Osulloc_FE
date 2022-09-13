@@ -14,11 +14,11 @@ export const validName = /^[가-힣]{2,15}$/;
 
 function Join() {
   const navigate = useNavigate();
-  const [username, setUsername, usernameHandler] = useInput("");
+  const [username, , usernameHandler] = useInput("");
   const [subscription, setSubscription] = useState(false);
-  const [email, setEmail, emailHandler] = useInput("");
-  const [password, setPassword, passwordHandler] = useInput("");
-  const [repw, setRepw, repwHandler] = useInput("");
+  const [email, , emailHandler] = useInput("");
+  const [password, , passwordHandler] = useInput("");
+  const [repw, , repwHandler] = useInput("");
 
   const subscribeHandler = (e) => {
     setSubscription(e.target.checked);
@@ -26,7 +26,6 @@ function Join() {
 
   async function join(email, password, username, subscription) {
     try {
-      console.log("시작:");
       const res = await instance.post(`/api/member/signup`, {
         email,
         password,
@@ -36,7 +35,7 @@ function Join() {
       console.log(res);
       navigate("/login");
     } catch (error) {
-      console.log("실패:", error);
+      console.log(error);
     }
   }
 

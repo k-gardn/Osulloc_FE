@@ -4,6 +4,7 @@ import useInput from "../../hooks/useInput";
 import styles from "./Login.module.css";
 import { instance } from "../../network/request";
 import { validEmail, validPw } from "../join/Join";
+import { logout } from "../../network/request";
 
 function Login() {
   const navigate = useNavigate();
@@ -103,6 +104,7 @@ function Login() {
           </div>
         </div>
       </div>
+      <button onClick={logout}>누르면 로그아웃이 되는 버튼</button>
     </div>
   );
 }
