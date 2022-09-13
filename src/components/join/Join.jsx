@@ -33,13 +33,10 @@ function Join() {
         username,
         subscription,
       });
+      console.log(res);
       navigate("/login");
     } catch (error) {
       console.log("실패:", error);
-      // const statusCode = error.response.status;
-      // const statusText = error.response.statusText;
-      // const msg = error.response.data.message[0];
-      // alert(`${statusCode}` - `${statusText}` - `${msg}`);
     }
   }
 
