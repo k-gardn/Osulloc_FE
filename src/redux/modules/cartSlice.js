@@ -3,11 +3,11 @@ import { instance } from "../../network/request";
 
 //TODO: 나의 장바구니 GET
 export const getcart = createAsyncThunk("GET_CART", async (_, thunkAPI) => {
-  // console.log("cart get 시작");
+  console.log("cart get 시작");
   try {
     const res = await instance.get("/api/auth/mycart");
     // const res = await instance.get(`/detail`);
-    // console.log("cart get 성공", res.data.data);
+    console.log("cart get 성공", res.data.data);
     return thunkAPI.fulfillWithValue(
       res.data.success ? res.data.data : res.data.error
     );
@@ -39,8 +39,6 @@ export const deletecartproduct = createAsyncThunk(
     console.log("삭제 시작");
     try {
       const res = await instance.delete(`/api/auth/mycart/${product_id}`);
-      console.log("삭제 성공");
-
       return thunkAPI.fulfillWithValue(
         res.data.success ? product_id : res.data.error
       );
@@ -55,10 +53,9 @@ export const deletecarttotal = createAsyncThunk(
   "DELETE_CART_TOTAL",
   async (thunkAPI) => {
     try {
-      const res = await instance.delete(`/api/auth/mycart/`);
-      return thunkAPI.fulfillWithValue(
-        res.data.success ? res.data : res.data.error
-      );
+      const res = await instance.delete(`/api/auth/mycart`);
+      console.log("res.data????? delete all :>> ", res.data);
+      return res.data.success;
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }
@@ -95,10 +92,8 @@ const cartSlice = createSlice({
     },
 
     //TODO: 내 장바구니 전체 삭제   DELETE
-    [deletecartproduct.fulfilled]: (state, action) => {
-      state.cart = state.cart.filter(
-        (cart) => cart.productId !== action.payload
-      );
+    [deletecarttotal.fulfilled]: (state, action) => {
+      state.cart = [];
     },
   },
 });

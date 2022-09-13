@@ -3,7 +3,7 @@ import styles from "./Cart.module.css";
 import CartItem from "../cart_item/CartItem";
 import { useEffect } from "react";
 import Checkbox from "@mui/material/Checkbox";
-import { deletecartproduct, getcart } from "../../redux/modules/cartSlice";
+import { deletecarttotal, getcart } from "../../redux/modules/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 
 const Cart = () => {
@@ -16,11 +16,17 @@ const Cart = () => {
 
   const [cartList, setCartList] = useState(cart);
 
-  useEffect(async () => {
-    const getproduct = await dispatch(getcart()).then((res) => res.payload);
+  // useEffect(() => {
+  //   dispatch(getcart()).then((res) => setCartList(res.payload));
+  // }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getcart());
   }, [dispatch]);
 
-  console.log("cartList", cart);
+  useEffect(() => {
+    setCartList(cart);
+  }, [cart]);
 
   //TODO:
   useEffect(() => {
@@ -58,12 +64,13 @@ const Cart = () => {
   };
   //TODO: isChecked 키의 값이 false인 아이템만 남기고 목록에서 삭제.
   const deleteItems = () => {
-    setCartList((prevState) => {
-      return prevState.filter((obj) => {
-        return !obj.isChecked;
-      });
-    });
+    dispatch(deletecarttotal()).then((res) => console.log("res ?", res));
   };
+
+  // 포장 선택한 갯수 getWrapPrice.length
+  const getWrapPrice = cartList.filter((item) => {
+    return item.pack ? item.pack : "";
+  });
 
   return (
     <div>
@@ -78,7 +85,7 @@ const Cart = () => {
 
         {/* TODO: 카트 item 나열. */}
         <button className={styles.deleteBtn} onClick={deleteItems}>
-          선택삭제
+          전체삭제
         </button>
         <div className={styles.cartContainer}>
           <div style={{ height: 400, width: "100%" }}>
