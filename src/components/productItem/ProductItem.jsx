@@ -19,7 +19,6 @@ const ProductItem = ({ product }) => {
   const navigate = useNavigate();
 
   const loginUser = localStorage.getItem("email");
-  console.log("loginUser", loginUser);
 
   const goToDetail = () => {
     navigate(`/products/${productId}`);

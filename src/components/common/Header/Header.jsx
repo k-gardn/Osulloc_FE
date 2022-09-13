@@ -1,8 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import { useDispatch } from "react-redux";
+import { logout } from "../../../network/request";
+import { useEffect } from "react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import Fade from "@mui/material/Fade";
 
 const Header = () => {
   // const user = useSelector((store) => store.auth.user);
@@ -11,33 +17,34 @@ const Header = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
+  const [visibleBtn, setVisibleBtn] = useState(true);
+
   const LOGO_IMG =
     "https://www.osulloc.com/kr/ko/static_cdj/images/main/logo_white.png";
 
-  // TODO: login 여부 확인
-  // useEffect(() => {
-  //   if (user) {
-  //     const { isAuthenticated, nickname } = user;
-  //     if (isAuthenticated) {
-  //       setUsername(nickname);
-  //     } else {
-  //       setUsername("");
-  //     }
-  //   } else if (nickname !== "") {
-  //     setUsername(nickname);
-  //   }
-  // }, [user]);
+  const loginUser = localStorage.getItem("email");
 
-  // TODO: 로그인 유저 정보 가져오기 (일단 지금은 로그인 상태로 확인하기)
-  const loginUser = "leeseul";
+  useEffect(() => {
+    if (loginUser) {
+      setVisibleBtn(false);
+    }
+  }, []);
 
-  // TODO: logout 함수
-  const logout = () => {
+  const onLogout = () => {
     if (window.confirm("로그아웃 하시겠습니까?")) {
-      navigate("/");
-      // dispatch(logOut());
+      logout();
+      setVisibleBtn(true);
+      console.log("visibleBtn logoout :>> ", visibleBtn);
     } else {
     }
+  };
+
+  const onLogin = () => {
+    navigate("/login");
+  };
+
+  const onJoin = () => {
+    navigate("/join");
   };
 
   const goCart = () => {
@@ -46,6 +53,15 @@ const Header = () => {
 
   const goHome = () => {
     window.location.replace("/");
+  };
+
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -61,12 +77,20 @@ const Header = () => {
           <button className={styles.cartBtn} onClick={goCart}>
             <ShoppingCartOutlinedIcon />
           </button>
-          {loginUser ? (
-            <Link className={styles.link} to="/login">
-              로그인
-            </Link>
+          {visibleBtn ? (
+            <div>
+              <Button onClick={handleClick}>
+                <span className={styles.link}>로그인 ▾</span>
+              </Button>
+              <span className={styles.linkJoin}>
+                <Menu anchorEl={anchorEl} open={open} onClose={handleClose}>
+                  <MenuItem onClick={onLogin}>로그인</MenuItem>
+                  <MenuItem onClick={onJoin}>회원가입</MenuItem>
+                </Menu>
+              </span>
+            </div>
           ) : (
-            <p className={styles.link} onClick={logout}>
+            <p className={styles.link} onClick={onLogout}>
               로그아웃
             </p>
           )}
