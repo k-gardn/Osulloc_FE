@@ -1,0 +1,21 @@
+.cartItemContainer {
+    border-bottom: 1px solid #e6e6e6;
+}
+
+.info {
+}
+
+.container {
+    display: flex;
+}
+
+.img {
+    width: 100px;
+}
+
+.info {
+    margin-left: 1em;
+}
+
+.cntBox {
+}
