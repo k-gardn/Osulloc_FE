@@ -7,6 +7,8 @@ export const instance = axios.create({
   },
 });
 
+export const logout = instance.get(`/api/auth/member/logout`);
+
 instance.interceptors.request.use(
   function (config) {
     // 요청이 전달되기 전에 작업 수행
