@@ -115,7 +115,7 @@ const Cart = () => {
         <ul className={styles.cartPriceBoxTop}>
           <div className={styles.cartPriceText}>
             <li>상품금액</li>
-            <li>{totalPrice} 원</li>
+            <li>+{totalPrice} 원</li>
           </div>
           <div className={styles.cartPriceText}>
             <li>상품 할인</li>
@@ -124,26 +124,27 @@ const Cart = () => {
                 color: "red",
               }}
             >
-              0원
+              -0원
             </li>
           </div>
           <div className={styles.cartPriceText}>
             <li>포장비</li>
-            <li>{getWrapPrice.length * 2000}원</li>
+            <li>+{getWrapPrice.length * 2000}원</li>
           </div>
           <div className={styles.cartPriceText}>
             <li>부가 쇼핑액</li>
-            <li>0원</li>
+            <li>+0원</li>
           </div>
           <div className={styles.cartPriceText}>
             <li>배송비</li>
-            <li>0원</li>
+            <li>+0원</li>
           </div>
         </ul>
         <div> 결제 예상 금액</div>
-        <div> 원</div>
-        {totalPrice + getWrapPrice.length * 2000}원
-        <button onClick={finalorder}>주문하기</button>
+        <div> {totalPrice + getWrapPrice.length * 2000}원</div>
+        <button onClick={finalorder}>
+          {totalPrice + getWrapPrice.length * 2000}원 주문하기
+        </button>
       </div>
     </div>
     // </div>
