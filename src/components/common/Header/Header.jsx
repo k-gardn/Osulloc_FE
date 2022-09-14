@@ -8,10 +8,10 @@ import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { getCartList } from "../../../redux/modules/productSlice";
+import { getcart } from "../../../redux/modules/cartSlice";
 
 const Header = () => {
-  const getMyCartNum = useSelector((state) => state.product.myCartNum);
+  const getMyCartNum = useSelector((state) => state.cart.myCartNum);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -30,8 +30,8 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(getCartList());
-  }, []);
+    dispatch(getcart());
+  }, [getMyCartNum]);
 
   useEffect(() => {
     setMyCartNum(getMyCartNum);

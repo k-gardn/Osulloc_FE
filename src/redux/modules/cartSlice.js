@@ -62,15 +62,34 @@ export const deletecarttotal = createAsyncThunk(
   }
 );
 
+// 메인화면에서 장바구니 추가 🐥
+export const addCart = createAsyncThunk(
+  "ADD_CART",
+  async (productId, thunkAPI) => {
+    const res = await instance.post(`/api/auth/cart`, productId);
+    return thunkAPI.fulfillWithValue(res.data.success);
+  }
+);
+
+// 메인화면에서 장바구니 삭제 🐥
+export const deleteCart = createAsyncThunk(
+  "DELETE_CART",
+  async (productId, thunkAPI) => {
+    const res = await instance.delete(`/api/auth/mycart/${productId}`);
+    return thunkAPI.fulfillWithValue(res.data.success);
+  }
+);
+
 const cartSlice = createSlice({
   name: "cart",
-  initialState: { cart: [] },
+  initialState: { cart: [], myCartNum: 0 },
   reducers: {},
   extraReducers: {
     //TODO: 나의 장바구니 GET
     [getcart.fulfilled]: (state, action) => {
       // console.log("get cart state>>", action);
       state.cart = action.payload;
+      state.myCartNum = action.payload.length;
     },
 
     //TODO: 제품 수량 변경 PUT
@@ -89,11 +108,25 @@ const cartSlice = createSlice({
       state.cart = state.cart.filter(
         (cart) => cart.productId !== action.payload
       );
+      state.myCartNum -= 1;
     },
 
     //TODO: 내 장바구니 전체 삭제   DELETE
     [deletecarttotal.fulfilled]: (state, action) => {
       state.cart = [];
+      state.myCartNum = 0;
+    },
+
+    [addCart.fulfilled]: (state, action) => {
+      if (action.payload) {
+        state.myCartNum += 1;
+      }
+    },
+
+    [deleteCart.fulfilled]: (state, action) => {
+      if (action.payload) {
+        state.myCartNum -= 1;
+      }
     },
   },
 });

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Productitem.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { addCart, deleteCart } from "../../redux/modules/productSlice";
+import { addCart, deleteCart } from "../../redux/modules/cartSlice";
 import { useNavigate } from "react-router-dom";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";

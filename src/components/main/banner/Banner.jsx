@@ -24,16 +24,8 @@ const Banner = () => {
 
   const bannerImgs = [BANNER_IMG_1, BANNER_IMG_2, BANNER_IMG_3, BANNER_IMG_4];
 
-  const url = window.location.href;
-
-  // if (url.split("/")[3] === "products") {
-  //   SetBANNER_IMG_PRODUCTS(
-  //     "https://www.osulloc.com/kr/ko/static_cdj/images/catBanner/banner_m_teaprod.jpg"
-  //   );
-  // }
-
-  const width = window.outerWidth;
-  console.log("width ?", width);
+  // const width = window.outerWidth;
+  // console.log("width ?", width);
 
   return (
     <section className={styles.bannerContainer}>
