@@ -1,13 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { instance } from "../../network/request";
 
-export const main = createAsyncThunk("MAIN", async (code) => {
-  console.log("code :>> ", code);
-  // const res = await instance.get(`?code=${code}`);
-  const res = await instance.get(`/api/member/kakao/callback?code=${code}`);
-  return res.data;
-});
-
 export const getBestProducts = createAsyncThunk(
   "GET_BEST_PRODUCTS",
   async () => {
@@ -20,6 +13,14 @@ export const getProducts = createAsyncThunk("GET_PRODUCTS", async () => {
   const res = await instance.get(`/api/main/products`);
   return res.data.success ? res.data.data : res.data.error;
 });
+
+export const getCartList = createAsyncThunk(
+  "GET_CARTLIST",
+  async (productId) => {
+    const res = await instance.get("/api/auth/mycart");
+    return res.data.success ? res.data.data : res.data.error;
+  }
+);
 
 export const addCart = createAsyncThunk("ADD_CART", async (productId) => {
   console.log("productId :>> ", productId);
@@ -38,6 +39,7 @@ const productSlice = createSlice({
   initialState: {
     bestProducts: [],
     Products: [],
+    myCartNum: 0,
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -46,6 +48,19 @@ const productSlice = createSlice({
     });
     builder.addCase(getProducts.fulfilled, (state, action) => {
       state.Products = action.payload;
+    });
+    builder.addCase(getCartList.fulfilled, (state, action) => {
+      state.myCartNum = action.payload.length;
+    });
+    builder.addCase(addCart.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.myCartNum += 1;
+      }
+    });
+    builder.addCase(deleteCart.fulfilled, (state, action) => {
+      if (action.payload) {
+        state.myCartNum -= 1;
+      }
     });
   },
 });

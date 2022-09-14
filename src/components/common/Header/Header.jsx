@@ -2,35 +2,26 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../../network/request";
 import { useEffect } from "react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import Badge, { BadgeProps } from "@mui/material/Badge";
-import { styled } from "@mui/material/styles";
-import IconButton from "@mui/material/IconButton";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { getCartList } from "../../../redux/modules/productSlice";
 
 const Header = () => {
-  // const user = useSelector((store) => store.auth.user);
-  // const [username, setUsername] = useState();
+  const getMyCartNum = useSelector((state) => state.product.myCartNum);
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const [visibleBtn, setVisibleBtn] = useState(true);
-  // const [myCartNum, setMyCartNum] = useState(0);
+  const [myCartNum, setMyCartNum] = useState(0);
 
   const LOGO_IMG =
     "https://www.osulloc.com/kr/ko/static_cdj/images/main/logo_white.png";
 
   const loginUser = localStorage.getItem("email");
-  const myCartNum = localStorage.getItem("myCartNum");
-
-  // if (getMyCartNum === -1) {
-  //   setMyCartNum(3);
-  // }
 
   useEffect(() => {
     if (loginUser) {
@@ -38,11 +29,18 @@ const Header = () => {
     }
   }, []);
 
+  useEffect(() => {
+    dispatch(getCartList());
+  }, []);
+
+  useEffect(() => {
+    setMyCartNum(getMyCartNum);
+  }, [getMyCartNum]);
+
   const onLogout = () => {
     if (window.confirm("로그아웃 하시겠습니까?")) {
       logout();
       setVisibleBtn(true);
-      console.log("visibleBtn logoout :>> ", visibleBtn);
     } else {
     }
   };
@@ -82,12 +80,6 @@ const Header = () => {
           onClick={goHome}
         />
         <div className={styles.navigation}>
-          <button className={styles.cartBtn} onClick={goCart}>
-            <ShoppingCartOutlinedIcon />
-          </button>
-          <div className={styles.myCartNum}>
-            {myCartNum === -1 ? 0 : myCartNum}
-          </div>
           {visibleBtn ? (
             <div>
               <Button onClick={handleClick}>
@@ -101,9 +93,17 @@ const Header = () => {
               </span>
             </div>
           ) : (
-            <p className={styles.link} onClick={onLogout}>
-              로그아웃
-            </p>
+            <div className={styles.statusLogin}>
+              <button className={styles.cartBtn} onClick={goCart}>
+                <ShoppingCartOutlinedIcon />
+              </button>
+              <div className={styles.myCartNum}>
+                {myCartNum === -1 ? 0 : myCartNum}
+              </div>
+              <p className={styles.link} onClick={onLogout}>
+                로그아웃
+              </p>
+            </div>
           )}
         </div>
       </header>

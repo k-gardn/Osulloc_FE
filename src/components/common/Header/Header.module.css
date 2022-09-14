@@ -23,6 +23,10 @@
   position: relative;
 }
 
+.statusLogin {
+  display: flex;
+}
+
 .cartBtn {
   padding: 0;
   cursor: pointer;

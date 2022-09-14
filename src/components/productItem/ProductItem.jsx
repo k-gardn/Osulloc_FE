@@ -1,14 +1,25 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Productitem.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addCart, deleteCart } from "../../redux/modules/productSlice";
 import { useNavigate } from "react-router-dom";
 import ToggleButton from "@mui/material/ToggleButton";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
+import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
+import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
+import RemoveIcon from "@mui/icons-material/Remove";
+import AddIcon from "@mui/icons-material/Add";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import { getcart } from "../../redux/modules/cartSlice";
 
 const ProductItem = ({ product }) => {
   const { productId, name, price, img1, img2 } = product;
+
+  const cart = useSelector((state) => state.cart.cart);
+
+  const [cartList, setCartList] = useState(cart);
+  const [selected, setSelected] = useState(false);
 
   const cardRef = useRef();
   const imgRef = useRef();
@@ -17,7 +28,21 @@ const ProductItem = ({ product }) => {
   const navigate = useNavigate();
 
   const loginUser = localStorage.getItem("email");
-  const [selected, setSelected] = React.useState(false);
+
+  useEffect(() => {
+    dispatch(getcart());
+  }, [dispatch]);
+
+  useEffect(() => {
+    setCartList(cart);
+  }, [cart]);
+
+  useEffect(() => {
+    const check = cartList.find((item) => item.productId === productId);
+    if (check) {
+      setSelected(true);
+    }
+  }, [cartList]);
 
   const goToDetail = () => {
     navigate(`/products/${productId}`);
@@ -44,14 +69,15 @@ const ProductItem = ({ product }) => {
       (res) => res.payload
     );
     if (result) {
-      // TODO: confirm 으로 장바구니로 이동할 껀지 물어 보기
       alert("장바구니에 추가 됐습니다.");
+      setSelected(true);
     } else {
       const deletedResult = await dispatch(deleteCart(productId)).then(
         (res) => res.payload
       );
       if (deletedResult) {
         alert("장바구니에서 삭제했습니다.");
+        setSelected(false);
       }
     }
   };
@@ -67,16 +93,7 @@ const ProductItem = ({ product }) => {
       />
       {loginUser ? (
         <div className={styles.btnCart} onClick={addCartProduct}>
-          <ToggleButton
-            value="check"
-            selected={selected}
-            onChange={() => {
-              setSelected(!selected);
-            }}
-          >
-            {selected ? <IndeterminateCheckBoxIcon /> : <AddCircleIcon />}
-          </ToggleButton>
-          );
+          {selected ? <RemoveIcon /> : <AddIcon />}
         </div>
       ) : (
         ""
