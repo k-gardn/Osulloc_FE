@@ -1,28 +1,60 @@
 .container {
-  margin-top: 80px;
+  /* margin-top: 100px; */
+  max-width: 1400px;
+  margin: 100px auto;
+  display: flex;
+  position: relative;
+  /* justify-content: center; */
+}
+
+.leftBox {
+  /* float: left; */
+}
+
+.titleAndDelete {
+  border-bottom: 2px solid black;
+}
+
+.titlecart {
+  height: auto;
+  font-size: 28px;
+  padding: 48px 0 0px;
+  margin: 0 10px;
 }
 
 .deleteBtn {
-  background-color: rgba(240, 248, 255, 0);
-  border: rgba(240, 248, 255, 0);
+  background-color: #95aa3e31;
+  border: rgba(66, 149, 94, 0.632);
+  margin: 2rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 3px;
   cursor: pointer;
 }
 
 .cartContainer {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   width: 70%;
   margin: auto;
 }
 
 .cartPriceBox {
   border: 1px solid black;
+  border-radius: 10px;
+  position: absolute;
+  top: 200px;
+  right: 0;
+  float: right;
   width: 400px;
   height: 400px;
   padding: 2em;
 }
+.cartPriceBoxTop {
+  border-bottom: 1px solid black;
+}
 
 .cartPriceText {
+  margin: 3px;
   display: flex;
   justify-content: space-between;
 }

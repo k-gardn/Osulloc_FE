@@ -17,11 +17,11 @@ const CartItem = ({ item, onChangeProps }) => {
   //   console.log("item isChecked > ", isChecked);
 
   const [checked, setChecked] = useState(isChecked);
-  const [isBtnValid, setIsBtnValid] = useState(true);
+  const [isBtnValid, setIsBtnValid] = useState(false);
   const [wrapping, setWrapping] = useState("");
 
   useEffect(() => {
-    if (pack === true) {
+    if (pack === false) {
       return setWrapping("포장 안함");
     } else {
       return setWrapping("포장 함");
@@ -34,14 +34,14 @@ const CartItem = ({ item, onChangeProps }) => {
     onChangeProps(productId, "isChecked", event.target.checked);
   };
 
-  const amountInputHandler = (event) => {
-    onChangeProps(productId, "count", +event.target.value);
-    const writeCount = {
-      productId,
-      count,
-    };
-    dispatch(cartCountChange(writeCount));
-  };
+  // const amountInputHandler = (event) => {
+  //   onChangeProps(productId, "count", +event.target.value);
+  //   const writeCount = {
+  //     productId,
+  //     count,
+  //   };
+  //   dispatch(cartCountChange(writeCount));
+  // };
 
   const amountIncreaseHandler = (event) => {
     event.preventDefault();
@@ -65,6 +65,7 @@ const CartItem = ({ item, onChangeProps }) => {
 
   const deleteHandler = (event) => {
     event.preventDefault();
+    alert("삭제하시겠습니까?");
     dispatch(deletecartproduct(productId));
   };
 
@@ -73,6 +74,10 @@ const CartItem = ({ item, onChangeProps }) => {
     setIsBtnValid(count > 1);
   }, [count]);
 
+  const order = () => {
+    alert("주문하시겠습니까?");
+  };
+
   return (
     <div className={styles.cartItemContainer}>
       {/* <Checkbox
@@ -80,27 +85,44 @@ const CartItem = ({ item, onChangeProps }) => {
         onChange={handleChange}
         inputProps={{ "aria-label": "controlled" }}
       /> */}
-      <button onClick={deleteHandler}>삭제하기</button>
-      <div className={styles.container}>
-        <img src={img1} alt="productImg" className={styles.img} />
-        <div className={styles.info}>
-          <p>{name}</p>
-          <p>{wrapping}</p>
-        </div>
-        <div className={styles.cntBox}>
-          <button onClick={amountDecreaseHandler} disabled={!isBtnValid}>
-            -
-          </button>
-          <input
-            type="text"
-            onChange={amountInputHandler}
-            value={count}
-          ></input>
-          <button onClick={amountIncreaseHandler}>+</button>
-          {price * count}
-        </div>
-        <button>바로구매</button>
+
+      {/* <div className={styles.container}> */}
+      {/* <div className={styles.imgAndcontent}> */}
+      <img src={img1} alt="productImg" className={styles.img} />
+      {/* <div className={styles.contentBox}> */}
+      <div className={styles.info}>
+        <p>{name}</p>
+        <p>{wrapping}</p>
+        <p className={styles.gift}>선물 가능한 상품 입니다.</p>
       </div>
+      {/* </div> */}
+
+      {/* <div className={styles.cntBox}> */}
+      <div className={styles.countbtnBox}>
+        <button onClick={amountDecreaseHandler} disabled={!isBtnValid}>
+          -
+        </button>
+        <span>{count}</span>
+        {/* <input
+                type="text"
+                onChange={amountInputHandler}
+                value={count}
+              ></input> */}
+        <button onClick={amountIncreaseHandler}>+</button>
+      </div>
+      <span>{price * count}</span>
+      {/* </div> */}
+      {/* </div> */}
+      <div className={styles.btnSet}>
+        <button className={styles.buybtn} onClick={order}>
+          바로구매
+        </button>
+        <button className={styles.deletebtn} onClick={deleteHandler}>
+          삭제하기
+        </button>
+      </div>
+
+      {/* </div> */}
     </div>
   );
 };
