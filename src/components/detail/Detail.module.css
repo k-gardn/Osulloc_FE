@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-around;
   align-items: stretch;
-  max-width: 1250px;
+  max-width: 1200px;
   min-width: 800px;
   margin: auto;
 }
