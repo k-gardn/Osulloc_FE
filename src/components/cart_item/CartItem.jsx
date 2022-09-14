@@ -57,7 +57,7 @@ const CartItem = ({ item, onChangeProps }) => {
 
   const deleteHandler = (event) => {
     event.preventDefault();
-    alert("삭제하시겠습니까?");
+    alert("해당 상품을 장바구니에서 삭제하였습니다.");
     dispatch(deletecartproduct(productId));
   };
 
@@ -74,7 +74,7 @@ const CartItem = ({ item, onChangeProps }) => {
     <div className={styles.cartItemContainer}>
       <img src={img1} alt="productImg" className={styles.img} />
       <div className={styles.info}>
-        <p>{name}</p>
+        <p style={{ paddingBottom: "7px" }}>{name}</p>
         <p>{wrapping}</p>
         <p className={styles.gift}>선물 가능한 상품 입니다.</p>
       </div>

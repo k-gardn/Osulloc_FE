@@ -1,26 +1,15 @@
 .cartItemContainer {
   border-bottom: 1px solid #e6e6e6;
-  justify-content: space-between;
+  justify-content: space-around;
   display: flex;
-  /* flex-direction: row; */
   align-items: center;
   padding: 20px 8px;
-  width: 50vw;
-  max-width: 1000px;
-  min-width: 150px;
+  width: 800px;
   margin: auto;
 }
 .container {
   display: flex;
 }
-/* .imgAndcontent {
-  display: flex;
-  align-items: center;
-} */
-
-/* .contentBox {
-  flex-grow: 1;
-} */
 
 .countbtnBox {
   display: flex;
@@ -39,7 +28,6 @@
 }
 
 .info {
-  /* border: 1px solid red; */
   margin-left: 1em;
 }
 
@@ -49,9 +37,6 @@
 
 .img {
   width: 100px;
-}
-
-.cntBox {
 }
 
 .btnSet {
@@ -67,7 +52,8 @@
 }
 
 .deletebtn {
-  background-color: #95aa3e31;
+  background-color: #6c801ae1;
+  color: white;
   border: 0;
   padding: 5px 0.2rem;
   border-radius: 5px;
