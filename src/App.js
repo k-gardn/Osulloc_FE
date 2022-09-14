@@ -8,6 +8,7 @@ import Join from "./components/join/Join";
 import DetailPage from "./pages/DetailPage";
 import CartPage from "./pages/CartPage";
 import CartLeeseulPage from "./pages/CartLeeseulPage";
+import KakaoRedirect from "./components/login/KakaoRedirect";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/products" element={<ProductList />} />
           <Route path="/products/:id" element={<DetailPage />} />
           <Route path="/cartleeseul" element={<CartLeeseulPage />} />
+          <Route path="/auth" element={<KakaoRedirect />} />
         </Routes>
       </BrowserRouter>
     </CookiesProvider>

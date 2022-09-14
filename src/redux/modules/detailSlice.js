@@ -39,7 +39,7 @@ export const postdetail = createAsyncThunk(
 
 const detailSlice = createSlice({
   name: "detail",
-  initialState: { detail: [] },
+  initialState: { detail: [], cart: [] },
   reducers: {},
   extraReducers: {
     //TODO: 디테일 페이지 상품 정보 get.

@@ -72,61 +72,81 @@ const Cart = () => {
     return item.pack ? item.pack : "";
   });
 
+  console.log(getWrapPrice.length);
+
+  const finalorder = () => {
+    alert("주문하시겠습니까?");
+  };
+
   return (
-    <div>
-      <div className={styles.container}>
-        <p>장바구니</p>
-        <Checkbox
+    <div className={styles.container}>
+      <div className={styles.leftBox}>
+        <div className={styles.titleAndDelete}>
+          <h2 className={styles.titlecart}>장바구니</h2>
+          <br />
+          <br />
+          <br />
+          {/* <Checkbox
           className={styles.checkbox}
           checked={totalCheckboxisChecked}
           onChange={handleChange}
           inputProps={{ "aria-label": "controlled" }}
-        />
+        /> */}
 
-        {/* TODO: 카트 item 나열. */}
-        <button className={styles.deleteBtn} onClick={deleteItems}>
-          전체삭제
-        </button>
-        <div className={styles.cartContainer}>
-          <div style={{ height: 400, width: "100%" }}>
-            {cartList.map((item) => (
-              <CartItem
-                item={item}
-                key={item.productId}
-                onChangeProps={onChangeProps}
-              />
-            ))}
-          </div>
-          <div className={styles.cartPriceBox}>
-            <ul>
-              <div className={styles.cartPriceText}>
-                <li>상품금액</li>
-                <li>{totalPrice} 원</li>
-              </div>
-              <div className={styles.cartPriceText}>
-                <li>상품 할인</li>
-                <li>0원</li>
-              </div>
-              <div className={styles.cartPriceText}>
-                <li>포장비</li>
-                <li>원</li>
-              </div>
-              <div className={styles.cartPriceText}>
-                <li>부가 쇼핑액</li>
-                <li>0원</li>
-              </div>
-              <div className={styles.cartPriceText}>
-                <li>배송비</li>
-                <li>원</li>
-              </div>
-            </ul>
-            <div> 결제 예상 금액</div>
-            <div> 원</div>
-            <button>{totalPrice} 원 주문하기</button>
-          </div>
+          {/* TODO: 카트 item 나열. */}
+          <button className={styles.deleteBtn} onClick={deleteItems}>
+            전체삭제
+          </button>
+        </div>
+
+        {/* <div className={styles.cartContainer}> */}
+        <div style={{ height: 400, width: "100%" }}>
+          {cartList.map((item) => (
+            <CartItem
+              item={item}
+              key={item.productId}
+              onChangeProps={onChangeProps}
+            />
+          ))}
         </div>
       </div>
+
+      <div className={styles.cartPriceBox}>
+        <ul className={styles.cartPriceBoxTop}>
+          <div className={styles.cartPriceText}>
+            <li>상품금액</li>
+            <li>{totalPrice} 원</li>
+          </div>
+          <div className={styles.cartPriceText}>
+            <li>상품 할인</li>
+            <li
+              style={{
+                color: "red",
+              }}
+            >
+              0원
+            </li>
+          </div>
+          <div className={styles.cartPriceText}>
+            <li>포장비</li>
+            <li>{getWrapPrice.length * 2000}원</li>
+          </div>
+          <div className={styles.cartPriceText}>
+            <li>부가 쇼핑액</li>
+            <li>0원</li>
+          </div>
+          <div className={styles.cartPriceText}>
+            <li>배송비</li>
+            <li>0원</li>
+          </div>
+        </ul>
+        <div> 결제 예상 금액</div>
+        <div> 원</div>
+        {totalPrice + getWrapPrice.length * 2000}원
+        <button onClick={finalorder}>주문하기</button>
+      </div>
     </div>
+    // </div>
   );
 };
 
