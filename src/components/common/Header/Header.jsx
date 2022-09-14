@@ -11,6 +11,19 @@ import MenuItem from "@mui/material/MenuItem";
 import { getcart } from "../../../redux/modules/cartSlice";
 
 const Header = () => {
+  const header = document.querySelector("#header");
+  // const headerHeight = header.getBoundingClientRect().height;
+
+  console.log("header", header);
+
+  // window.addEventListener("scroll", () => {
+  //   if (window.scrollY > "80px") {
+  //     header?.setAttribute("style", "background: red;");
+  //   } else {
+  //     header?.setAttribute("style", "background: transparent;");
+  //   }
+  // });
+
   const getMyCartNum = useSelector((state) => state.cart.myCartNum);
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -74,7 +87,7 @@ const Header = () => {
 
   return (
     <div>
-      <header className={styles.header}>
+      <header className={styles.header} id="header">
         <img
           className={styles.logoImg}
           src={LOGO_IMG}
