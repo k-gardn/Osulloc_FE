@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const KakaoRedirect = () => {
@@ -11,9 +11,15 @@ const KakaoRedirect = () => {
     axios
       .get(`http://3.36.123.198/api/oauth/kakao?code=${code}`)
       .then((res) => {
-        const ACCESS_TOKEN = res.data.accessToken;
-        sessionStorage.setItem("token", ACCESS_TOKEN); //예시로 로컬에 저장함
-        navigate("/"); // 토큰 받았았고 로그인됐으니 화면 전환시켜줌(메인으로)
+        const ACCESS_TOKEN = res.data.data.accessToken;
+        const kakaoToken = res.data.data.kakaoToken;
+        const refreshToken = res.headers["refresh-token"];
+        const email = res.data.data.email;
+        sessionStorage.setItem("authorization", ACCESS_TOKEN);
+        sessionStorage.setItem("kakaoToken", kakaoToken);
+        sessionStorage.setItem("Refresh_token", refreshToken);
+        localStorage.setItem("email", email);
+        navigate("/");
       })
       .catch((err) => {
         console.log(err);

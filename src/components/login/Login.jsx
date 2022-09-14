@@ -94,9 +94,15 @@ function Login() {
             value={password}
             onChange={pwHandler}
           ></input>
-          <button className={styles.loginBtn} onClick={loginHandler}>
+          <button
+            className={styles.loginBtn}
+            onClick={loginHandler}
+            disabled={email === "" || password === ""}
+          >
             로그인
           </button>
+          <div className={styles.hr}>OR</div>
+          <KakaoLogin />
           <div className={styles.joinYet}>
             <p>아직 회원이 아니세요?</p>
             <p onClick={() => navigate("/join")} style={{ cursor: "pointer" }}>
@@ -105,8 +111,6 @@ function Login() {
           </div>
         </div>
       </div>
-      <button onClick={logout}>누르면 로그아웃이 되는 버튼</button>
-      <KakaoLogin />
     </div>
   );
 }

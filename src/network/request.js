@@ -25,12 +25,21 @@ instance.interceptors.request.use(
 
 export const logout = async () => {
   try {
-    console.log();
-    await instance.get(`/api/auth/member/logout`);
-    sessionStorage.removeItem("Access_token");
-    sessionStorage.removeItem("Refresh_token");
-    localStorage.removeItem("email");
-    alert("로그아웃 되었습니다.");
+    if (sessionStorage.getItem("kakaoToken") === null) {
+      await instance.get(`/api/auth/member/logout`);
+      sessionStorage.removeItem("authorization");
+      sessionStorage.removeItem("Refresh_token");
+      localStorage.removeItem("email");
+      alert("로그아웃 되었습니다.");
+    } else {
+      axios.defaults.headers.common["kakaoToken"] = sessionStorage.getItem("kakaoToken");
+      await instance.get(`/api/oauth/kakao/logout`);
+      sessionStorage.removeItem("authorization");
+      sessionStorage.removeItem("Refresh_token");
+      sessionStorage.removeItem("kakaoToken");
+      localStorage.removeItem("email");
+      alert("로그아웃 되었습니다.");
+    }
   } catch (error) {
     console.log("에러:", error);
   }
