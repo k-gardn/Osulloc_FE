@@ -17,13 +17,13 @@ const Cart = () => {
 
   const [cartList, setCartList] = useState(cart);
 
-  useEffect(() => {
-    dispatch(getcart()).then((res) => setCartList(res.payload));
-  }, [dispatch]);
-
   // useEffect(() => {
   //   dispatch(getcart());
   // }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(getcart());
+  }, []);
 
   useEffect(() => {
     setCartList(cart);
@@ -72,8 +72,6 @@ const Cart = () => {
   const getWrapPrice = cartList.filter((item) => {
     return item.pack ? item.pack : "";
   });
-
-  console.log(getWrapPrice.length);
 
   const finalorder = () => {
     alert("주문하시겠습니까?");

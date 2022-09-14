@@ -20,9 +20,9 @@ export const getcart = createAsyncThunk("GET_CART", async (_, thunkAPI) => {
 export const cartCountChange = createAsyncThunk(
   "PUT_CART_CHANGE",
   async (payload, thunkAPI) => {
+    const sendData = { productId: payload.productId, count: payload.count };
     try {
-      const res = await instance.put("/api/auth/mycart", payload);
-      console.log("put 성공", res);
+      const res = await instance.put("/api/auth/mycart", sendData);
       return thunkAPI.fulfillWithValue(
         res.data.success ? payload : res.data.error
       );

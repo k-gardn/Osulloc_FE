@@ -37,21 +37,22 @@ const CartItem = ({ item, onChangeProps }) => {
   const amountIncreaseHandler = (event) => {
     event.preventDefault();
     onChangeProps(productId, "count", count + 1);
-    const plusCount = {
-      productId,
-      count: count + 1,
-    };
-    dispatch(cartCountChange(plusCount));
+    // const plusCount = {
+    //   productId,
+    //   count: count + 1,
+    // };
+    dispatch(cartCountChange({ ...item, count: count + 1 }));
   };
 
   const amountDecreaseHandler = (event) => {
     event.preventDefault();
     onChangeProps(productId, "count", count - 1);
-    const plusCount = {
-      productId,
-      count: count - 1,
-    };
-    dispatch(cartCountChange(plusCount));
+    // const plusCount = {
+    //   productId,
+    //   count: count - 1,
+    // };
+    dispatch(cartCountChange({ ...item, count: count - 1 }));
+    // dispatch(cartCountChange("gggggg"));
   };
 
   const deleteHandler = (event) => {
