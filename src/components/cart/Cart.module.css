@@ -1,18 +1,17 @@
 .container {
-  /* margin-top: 100px; */
-  max-width: 1400px;
-  margin: 100px auto;
   display: flex;
   position: relative;
   justify-content: center;
+  margin: 8em 5em 25em 5em;
 }
 
 .leftBox {
-  /* float: left; */
+  float: left;
 }
 
 .titleAndDelete {
   border-bottom: 2px solid black;
+  width: 50vw;
 }
 
 .titlecart {
@@ -22,39 +21,66 @@
   margin: 0 10px;
 }
 
-.deleteBtn {
-  background-color: #95aa3e31;
-  border: rgba(66, 149, 94, 0.632);
+.allDeleteBtn {
+  background-color: #6c801ae1;
+  color: white;
+  border: 0;
   margin: 2rem;
   padding: 0.3rem 0.5rem;
   border-radius: 3px;
   cursor: pointer;
 }
 
-.cartContainer {
-  /* display: flex; */
-  /* justify-content: center; */
-  width: 70%;
-  margin: auto;
+.emptyCart {
+  width: 50vw;
+  text-align: center;
+  margin-top: 5rem;
 }
 
-.cartPriceBox {
+.rightBox {
   border: 1px solid black;
-  border-radius: 10px;
-  position: absolute;
-  top: 200px;
-  right: 0;
+  border-radius: 8px;
   float: right;
-  width: 400px;
-  height: 400px;
-  padding: 2em;
+  width: 270px;
+  height: 340px;
+  margin-left: 5em;
+  margin-top: 13em;
+  overflow: hidden;
 }
+
+.exeptBtn {
+  padding: 20px 18px 0 18px;
+  width: 270px;
+}
+
 .cartPriceBoxTop {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #e6e6e6;
+  margin-bottom: 15px;
+  padding: 1em;
+  padding-bottom: 1.8rem;
 }
 
 .cartPriceText {
-  margin: 3px;
+  margin: 5px;
   display: flex;
   justify-content: space-between;
+}
+
+.cartPriceBoxBottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1em;
+}
+
+.orderBtn {
+  border-color: transparent;
+  width: 270px;
+
+  /* width: 100%; */
+  background-color: #6c801a;
+  color: white;
+  font-size: 1rem;
+  padding: 15px 0;
 }

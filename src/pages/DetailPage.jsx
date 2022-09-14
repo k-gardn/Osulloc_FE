@@ -1,13 +1,12 @@
 import React from "react";
 import Detail from "../components/detail/Detail";
-import Header from "../components/common/Header/Header";
+import LayoutPage from "../components/common/LayoutPage";
 
 const DetailPage = () => {
   return (
-    <>
-      <Header />
+    <LayoutPage>
       <Detail />
-    </>
+    </LayoutPage>
   );
 };
 

@@ -99,7 +99,7 @@ const cartSlice = createSlice({
           ? { ...action.payload }
           : cart
       );
-      // console.log("put cart state>>", action);
+      console.log("put cart state>>", action);
       // console.log("put cart state>>", state.cart);
     },
 

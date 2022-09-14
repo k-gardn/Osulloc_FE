@@ -10,11 +10,11 @@ import {
   cartCountChange,
   deletecartproduct,
 } from "../../redux/modules/cartSlice";
+import { moneyForm } from "../../utils/moneyForm";
 
 const CartItem = ({ item, onChangeProps }) => {
   const dispatch = useDispatch();
   const { productId, name, count, img1, price, isChecked, pack } = item;
-  //   console.log("item isChecked > ", isChecked);
 
   const [checked, setChecked] = useState(isChecked);
   const [isBtnValid, setIsBtnValid] = useState(false);
@@ -33,15 +33,6 @@ const CartItem = ({ item, onChangeProps }) => {
     setChecked(event.target.checked);
     onChangeProps(productId, "isChecked", event.target.checked);
   };
-
-  // const amountInputHandler = (event) => {
-  //   onChangeProps(productId, "count", +event.target.value);
-  //   const writeCount = {
-  //     productId,
-  //     count,
-  //   };
-  //   dispatch(cartCountChange(writeCount));
-  // };
 
   const amountIncreaseHandler = (event) => {
     event.preventDefault();
@@ -66,7 +57,7 @@ const CartItem = ({ item, onChangeProps }) => {
 
   const deleteHandler = (event) => {
     event.preventDefault();
-    alert("삭제하시겠습니까?");
+    alert("해당 상품을 장바구니에서 삭제하였습니다.");
     dispatch(deletecartproduct(productId));
   };
 
@@ -81,39 +72,22 @@ const CartItem = ({ item, onChangeProps }) => {
 
   return (
     <div className={styles.cartItemContainer}>
-      {/* <Checkbox
-        checked={isChecked}
-        onChange={handleChange}
-        inputProps={{ "aria-label": "controlled" }}
-      /> */}
-
-      {/* <div className={styles.container}> */}
-      {/* <div className={styles.imgAndcontent}> */}
       <img src={img1} alt="productImg" className={styles.img} />
-      {/* <div className={styles.contentBox}> */}
       <div className={styles.info}>
-        <p>{name}</p>
+        <p style={{ paddingBottom: "7px" }}>{name}</p>
         <p>{wrapping}</p>
         <p className={styles.gift}>선물 가능한 상품 입니다.</p>
       </div>
-      {/* </div> */}
 
-      {/* <div className={styles.cntBox}> */}
       <div className={styles.countbtnBox}>
         <button onClick={amountDecreaseHandler} disabled={!isBtnValid}>
           -
         </button>
         <span>{count}</span>
-        {/* <input
-                type="text"
-                onChange={amountInputHandler}
-                value={count}
-              ></input> */}
+
         <button onClick={amountIncreaseHandler}>+</button>
       </div>
-      <span>{price * count}</span>
-      {/* </div> */}
-      {/* </div> */}
+      <span>{moneyForm(price * count)}</span>
       <div className={styles.btnSet}>
         <button className={styles.buybtn} onClick={order}>
           바로구매
@@ -122,8 +96,6 @@ const CartItem = ({ item, onChangeProps }) => {
           삭제하기
         </button>
       </div>
-
-      {/* </div> */}
     </div>
   );
 };
