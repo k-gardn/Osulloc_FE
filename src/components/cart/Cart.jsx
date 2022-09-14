@@ -22,7 +22,7 @@ const Cart = () => {
 
   useEffect(() => {
     dispatch(getcart());
-  }, [dispatch]);
+  }, []);
 
   useEffect(() => {
     setCartList(cart);
@@ -71,8 +71,6 @@ const Cart = () => {
   const getWrapPrice = cartList.filter((item) => {
     return item.pack ? item.pack : "";
   });
-
-  console.log(getWrapPrice.length);
 
   const finalorder = () => {
     alert("주문하시겠습니까?");

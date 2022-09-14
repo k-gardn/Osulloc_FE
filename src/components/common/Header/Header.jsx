@@ -30,7 +30,9 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    dispatch(getcart());
+    if (loginUser !== null) {
+      dispatch(getcart());
+    }
   }, [getMyCartNum]);
 
   useEffect(() => {
