@@ -13,6 +13,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getdetail } from "../../redux/modules/detailSlice";
 import useInput from "../../hooks/useInput";
 import { postdetail } from "../../redux/modules/detailSlice";
+import { moneyForm } from "../../utils/moneyForm";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ const Detail = () => {
     <Link underline="hover" key="1" color="inherit" href="/">
       Home
     </Link>,
-    <Link underline="hover" key="2" color="inherit" href="/products/:id">
+    <Link underline="hover" key="2" color="inherit" href={`/products/${id}`}>
       product
     </Link>,
   ];
@@ -106,8 +107,8 @@ const Detail = () => {
                   {breadcrumbs}
                 </Breadcrumbs>
               </Stack>
-              <p className={styles.productName}>{data?.name}</p>
-              <p className={styles.produtContent}>{data?.content}</p>
+              <p className={styles.productName}>{moneyForm(data?.name)}</p>
+              <p className={styles.produtContent}>{moneyForm(data?.content)}</p>
               <div>
                 <div className={styles.btnAndPriceBox}>
                   <div className={styles.smallbtnset}>
@@ -115,7 +116,7 @@ const Detail = () => {
                     <button className={styles.urlbtn}> </button>
                     <button className={styles.fbtn}> </button>
                   </div>
-                  <p>{data?.price}</p>
+                  <p>{moneyForm(data?.price)}</p>
                 </div>
                 {/* <Grid>
                                     <FormControl
@@ -188,11 +189,8 @@ const Detail = () => {
                             "aria-label": "Without label",
                           }}
                         >
-                          <MenuItem value="">
-                            <em>포장 가능(+2000원)</em>
-                          </MenuItem>
                           <MenuItem value={false}>포장 안함</MenuItem>
-                          <MenuItem value={true}>포장 함</MenuItem>
+                          <MenuItem value={true}>포장 함(+2000원)</MenuItem>
                         </Select>
                       </FormControl>
                     </div>
@@ -213,7 +211,7 @@ const Detail = () => {
                     <div className={styles.price}>
                       <span className={styles.spanPrice}>상품금액합계</span>
                       <span className={styles.totalPrice}>
-                        {data?.price * count + packPrice}
+                        {moneyForm(data?.price * count + packPrice)}
                       </span>
                     </div>
                     <div className={styles.buyBtnSet}>

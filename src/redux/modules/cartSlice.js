@@ -24,7 +24,7 @@ export const cartCountChange = createAsyncThunk(
       const res = await instance.put("/api/auth/mycart", payload);
       console.log("put 성공", res);
       return thunkAPI.fulfillWithValue(
-        res.data.success ? res.data.data : res.data.error
+        res.data.success ? payload : res.data.error
       );
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
@@ -99,7 +99,7 @@ const cartSlice = createSlice({
           ? { ...action.payload }
           : cart
       );
-      // console.log("put cart state>>", action);
+      console.log("put cart state>>", action);
       // console.log("put cart state>>", state.cart);
     },
 
