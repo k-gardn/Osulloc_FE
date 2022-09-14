@@ -33,7 +33,11 @@ function Join() {
         subscription,
       });
       console.log(res);
-      navigate("/login");
+      if (res.data.data === null) {
+        alert(res.data.error);
+      } else {
+        navigate("/login");
+      }
     } catch (error) {
       console.log(error);
     }

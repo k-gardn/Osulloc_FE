@@ -27,10 +27,15 @@ export const postdetail = createAsyncThunk(
       const res = await instance.post(`/api/auth/main/products/cart`, payload);
       // const res = await instance.post(`/cart`, payload);
       // console.log("slice", res.data);
-
-      return thunkAPI.fulfillWithValue(
-        res.data.success ? res.data : res.data.error
-      );
+      console.log(res);
+      if (res.data.data === null) {
+        alert("이미 장바구니에 담긴 상품입니다.");
+        if (!res.data.success) {
+          return res.data.error;
+        }
+      } else {
+        return thunkAPI.fulfillWithValue(res.data.success ? res.data : res.data.error);
+      }
     } catch (error) {
       return thunkAPI.rejectWithValue(error);
     }

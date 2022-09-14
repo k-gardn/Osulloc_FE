@@ -11,7 +11,7 @@
 
 .titleAndDelete {
   border-bottom: 2px solid black;
-  width: 50vw;
+  width: 55vw;
 }
 
 .titlecart {
@@ -32,7 +32,7 @@
 }
 
 .emptyCart {
-  width: 50vw;
+  width: 55vw;
   text-align: center;
   margin-top: 5rem;
 }
@@ -46,6 +46,7 @@
   margin-left: 5em;
   margin-top: 13em;
   overflow: hidden;
+  position: relative;
 }
 
 .exeptBtn {
@@ -77,6 +78,9 @@
 .orderBtn {
   border-color: transparent;
   width: 270px;
+
+  position: absolute;
+  bottom: 0px;
 
   /* width: 100%; */
   background-color: #6c801a;

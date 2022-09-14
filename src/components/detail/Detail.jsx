@@ -61,8 +61,13 @@ const Detail = () => {
       count,
       pack,
     };
-    dispatch(postdetail(cart));
-    return navigate("/cart");
+    if (localStorage.getItem("email") === null) {
+      alert("로그인 후 이용해주세요.");
+    } else {
+      dispatch(postdetail(cart)).then((res) =>
+        res.payload === `DUPLICATE_CART` ? "" : navigate("/cart")
+      );
+    }
   };
 
   return (
