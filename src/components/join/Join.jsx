@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Join.module.css";
 import useInput from "../../hooks/useInput";
 import { instance } from "../../network/request";
-import { TextField } from "@mui/material";
 
 // Email: '@', '.' 포함
 export const validEmail =
@@ -45,25 +44,18 @@ function Join() {
       <div className={styles.joinbox}>
         <div className={styles.halfjoinbox}>
           <div className={styles.leftjoinbox}>
-            <img src={"/osulloclogo.png"} alt="logo" width="350" height="245" />
+            <img src={"/osulloclogoedit.png"} alt="logo" width="260" height="250" />
           </div>
           <div className={styles.rightjoinbox}>
             <p className={styles.content}>오설록에 오신 것을 환영합니다</p>
-            <div className={styles.joinalready}>
-              <div>이미 회원이신가요?</div>
-              <div onClick={() => navigate("/login")} style={{ cursor: "pointer" }}>
-                로그인 ＞
-              </div>
-            </div>
             <div className={styles.inputbox}>
-              {/* <TextField label="이름" variant="standard" /> */}
               <input
                 className={styles.input}
                 placeholder="이름"
                 title="username"
                 value={username}
                 onChange={usernameHandler}
-                style={{ width: "181px", marginRight: "20px" }}
+                style={{ width: "160px", marginRight: "20px" }}
               ></input>
               <label className={styles.label}>
                 <input
@@ -111,6 +103,12 @@ function Join() {
               >
                 회원가입
               </button>
+            </div>
+            <div className={styles.joinalready}>
+              <div>이미 회원이신가요?</div>
+              <div onClick={() => navigate("/login")} style={{ cursor: "pointer" }}>
+                로그인 ＞
+              </div>
             </div>
           </div>
         </div>

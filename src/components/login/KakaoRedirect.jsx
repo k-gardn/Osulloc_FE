@@ -9,7 +9,7 @@ const KakaoRedirect = () => {
 
   useEffect(() => {
     axios
-      .get(`http://3.36.123.198/api/oauth/kakao?code=${code}`)
+      .get(process.env.REACT_APP_API + `/api/oauth/kakao?code=${code}`)
       .then((res) => {
         const ACCESS_TOKEN = res.headers["access-token"];
         const kakaoToken = res.data.data.kakaoToken;

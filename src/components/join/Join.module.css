@@ -20,41 +20,42 @@
   background-color: white;
   border-radius: 2px;
   z-index: 1;
-  width: 800px;
-  height: 550px;
+  width: 720px;
+  height: 530px;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 0px 15px #aaaaaa;
   /* background: linear-gradient(160deg, #6c7f1a, #c5cbac, #ffffff); */
-  color: white;
+  color: #6c7f1a;
 }
 
 .halfjoinbox {
   display: flex;
+  height: 530px;
 }
 
 .rightjoinbox {
   text-align: center;
   border-radius: 2px 0px 0px 2px;
-  background: linear-gradient(190deg, #849827, #c5cbac, #eff2e8);
-  padding: 20px 10px 20px 10px;
-  width: 500px;
-  height: 550px;
+  /* background: linear-gradient(190deg, #849827, #c5cbac, #eff2e8); */
+  padding: 20px 3px 20px 0px;
+  /* width: 450px; */
+  /* height: 550px; */
 }
 
 .leftjoinbox {
   text-align: center;
   margin: auto;
-  width: 350px;
+  padding: 0px 0px 0px 20px;
   background-color: white;
   border-radius: 2px 0px 0px 2px;
   color: rgb(68, 68, 68);
 }
 
 .content {
-  margin: 30px 0px 25px 0px;
+  margin: 40px 0px 43px 0px;
   text-align: center;
   font-size: 1.7rem;
   font-weight: bold;
@@ -63,11 +64,12 @@
 
 .joinalready {
   display: flex;
-  margin: 10px 20px 10px 20px;
+  width: 350px;
+  margin: 20px auto;
   justify-content: space-between;
   font-size: 1.05rem;
-  color: rgb(239, 239, 239);
-  border-bottom: 2px solid white;
+  color: rgb(95, 95, 95);
+  /* border-bottom: 1px solid rgb(159, 159, 159); */
 }
 
 .p {
@@ -83,34 +85,36 @@
 }
 
 .inputbox {
-  margin-top: 40px;
+  margin-top: 25px;
   text-align: center;
 }
 
 .input {
-  margin: 15px 0px 0px 0px;
+  margin: 14px 0px 0px 0px;
   padding: 3px 10px 3px 10px;
-  width: 370px;
+  width: 350px;
   height: 45px;
   border: 2px solid rgb(222, 222, 222);
   font-size: 1rem;
+  border-radius: 5px;
 }
 
 .input:focus {
-  outline: 1px solid white;
+  border: none;
+  outline: 2px solid #6c7f1a;
 }
 
 .label {
-  color: #595f3c;
+  color: #5a5a5a;
   font-size: 1.18rem;
   font-weight: bold;
   margin-top: 3px;
 }
 
 .joinBtn {
-  margin-top: 45px;
+  margin-top: 27px;
   padding: 3px 10px 3px 10px;
-  width: 370px;
+  width: 350px;
   height: 45px;
   border: none;
   border-radius: 5px;

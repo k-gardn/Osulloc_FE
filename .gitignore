@@ -25,6 +25,8 @@ db.json
 
 # db.json
 db.json
+.env.development
+.env.production
 
 /history
 .history
