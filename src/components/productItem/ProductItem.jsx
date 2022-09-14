@@ -3,15 +3,10 @@ import styles from "./Productitem.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { addCart, deleteCart } from "../../redux/modules/productSlice";
 import { useNavigate } from "react-router-dom";
-import ToggleButton from "@mui/material/ToggleButton";
-import AddCircleIcon from "@mui/icons-material/AddCircle";
-import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
-import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import IndeterminateCheckBoxIcon from "@mui/icons-material/IndeterminateCheckBox";
 import RemoveIcon from "@mui/icons-material/Remove";
 import AddIcon from "@mui/icons-material/Add";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import { getcart } from "../../redux/modules/cartSlice";
+import { moneyForm } from "../../utils/moneyForm";
 
 const ProductItem = ({ product }) => {
   const { productId, name, price, img1, img2 } = product;
@@ -101,7 +96,7 @@ const ProductItem = ({ product }) => {
 
       <div className={styles.info}>
         <p className={styles.name}>{name}</p>
-        <p className={styles.price}>{price}</p>
+        <p className={styles.price}> {moneyForm(price)}</p>
       </div>
     </div>
   );
