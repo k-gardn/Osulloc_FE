@@ -22,7 +22,8 @@
 .item_layout {
   position: relative;
   margin: auto;
-  height: 70vh;
+  height: 80vh;
+  width: 30vw;
   padding: 30px 43px 110px;
   background: #f8f9fb;
 }
@@ -175,6 +176,7 @@
 }
 
 .spanPrice {
+  /* border: 1px solid black; */
   display: absolute;
   font-size: 1.5rem;
   left: 0;

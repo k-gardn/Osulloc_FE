@@ -52,6 +52,8 @@ const Cart = () => {
     return item.pack ? item.pack : "";
   });
 
+  console.log("cartList >>", cartList);
+
   const finalorder = () => {
     alert("주문하시겠습니까?");
   };
@@ -67,6 +69,11 @@ const Cart = () => {
             전체삭제
           </button>
         </div>
+
+        <div className={styles.emptyCart}>
+          {cartList.length === 0 && <div>장바구니가 비어있습니다.</div>}
+        </div>
+
         <div style={{ height: 400, width: "100%" }}>
           {cartList.map((item) => (
             <CartItem
@@ -105,7 +112,7 @@ const Cart = () => {
             </div>
             <div className={styles.cartPriceText}>
               <li>배송비</li>
-              <li>+0원</li>
+              <li>+3000원</li>
             </div>
           </ul>
           <div className={styles.cartPriceBoxBottom}>

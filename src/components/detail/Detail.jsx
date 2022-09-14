@@ -20,7 +20,7 @@ const Detail = () => {
 
   const [count, setCount] = useState(parseInt("1"));
   const [pack, setPack] = useState(false);
-  const [packPrice, setPackPrice] = useState("");
+  const [packPrice, setPackPrice] = useState(0);
 
   const selectPackHandler = (e) => {
     e.preventDefault();
@@ -174,7 +174,7 @@ const Detail = () => {
                     <div className={styles.price}>
                       <span className={styles.spanPrice}>상품금액합계</span>
                       <span className={styles.totalPrice}>
-                        {moneyForm(data?.price * count + packPrice)}
+                        {`${moneyForm(data?.price * count + packPrice)}`}
                       </span>
                     </div>
                     <div className={styles.buyBtnSet}>
