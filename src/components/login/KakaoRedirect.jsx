@@ -15,7 +15,7 @@ const KakaoRedirect = () => {
         const kakaoToken = res.data.data.kakaoToken;
         const refreshToken = res.headers["refresh-token"];
         const email = res.data.data.email;
-        sessionStorage.setItem("authorization", ACCESS_TOKEN);
+        sessionStorage.setItem("Access_token", ACCESS_TOKEN);
         sessionStorage.setItem("kakaoToken", kakaoToken);
         sessionStorage.setItem("Refresh_token", refreshToken);
         localStorage.setItem("email", email);
