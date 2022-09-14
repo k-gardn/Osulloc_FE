@@ -3,7 +3,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  /* transform: translateX(-15em); */
 }
 
 .card:hover .btnCart {

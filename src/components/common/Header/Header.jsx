@@ -11,18 +11,28 @@ import MenuItem from "@mui/material/MenuItem";
 import { getcart } from "../../../redux/modules/cartSlice";
 
 const Header = () => {
+  // const [headerColor, setHeaderColor] = useState("original");
   const header = document.querySelector("#header");
-  // const headerHeight = header.getBoundingClientRect().height;
 
-  console.log("header", header);
-
-  // window.addEventListener("scroll", () => {
-  //   if (window.scrollY > "80px") {
-  //     header?.setAttribute("style", "background: red;");
-  //   } else {
-  //     header?.setAttribute("style", "background: transparent;");
-  //   }
+  // document.addEventListener("scroll", () => {
+  //   console.log(window.scrollY);
   // });
+
+  // if (window.screenY > 80) {
+  //   setHeaderColor("dark");
+  // } else {
+  //   setHeaderColor("original");
+  // }
+
+  // console.log("headerColor >", headerColor);
+
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const updateScroll = () => {
+    setScrollPosition(window.scrollY || document.documentElement.scrollTop);
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", updateScroll);
+  });
 
   const getMyCartNum = useSelector((state) => state.cart.myCartNum);
   const navigate = useNavigate();
@@ -86,8 +96,15 @@ const Header = () => {
   };
 
   return (
+    //scrollPosition < 100 ? "original_header" : "change_header"
     <div>
-      <header className={styles.header} id="header">
+      {/* <header className={styles.header} id="header"> */}
+      <header
+        className={`${styles.header} ${
+          scrollPosition < 80 ? styles.original : styles.dark
+        }`}
+        id="header"
+      >
         <img
           className={styles.logoImg}
           src={LOGO_IMG}

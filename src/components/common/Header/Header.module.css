@@ -12,6 +12,20 @@
   z-index: 10;
 }
 
+.dark {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 5em 0 5em;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4), transparent);
+  z-index: 10;
+}
+
 .logoImg {
   cursor: pointer;
 }
@@ -32,11 +46,12 @@
   cursor: pointer;
   background-color: transparent;
   border: 0;
+  color: white;
 }
 
 .myCartNum {
-  background-color: whitesmoke;
-  color: black;
+  background-color: olive;
+  color: white;
   font-weight: bold;
   border-radius: 50%;
   padding: 0em;

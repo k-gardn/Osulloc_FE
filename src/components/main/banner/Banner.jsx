@@ -24,11 +24,17 @@ const Banner = () => {
 
   const bannerImgs = [BANNER_IMG_1, BANNER_IMG_2, BANNER_IMG_3, BANNER_IMG_4];
 
+  // const banner = document.querySelector("#banner");
+  // const bannerHeight = banner.getBoundingClientRect().height;
+
+  // console.log("banner", banner);
+  // console.log("bannerHeight", bannerHeight);
+
   // const width = window.outerWidth;
   // console.log("width ?", width);
 
   return (
-    <section className={styles.bannerContainer}>
+    <section id="banner" className={styles.bannerContainer}>
       <Swiper
         spaceBetween={0}
         slidesPerView={1}
