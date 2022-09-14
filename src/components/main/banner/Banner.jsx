@@ -46,7 +46,7 @@ const Banner = () => {
                   티&티푸드 페어링
                 </p>
                 <p className={styles.bannerDescription}>
-                  오설록이 제안하는 티와 티푸드 조홥으로 <br />
+                  오설록이 제안하는 티와 티푸드 조합으로 <br />
                   성큼 다가온 가을을 맞이해보세요.
                 </p>
                 <p className={styles.bannerDate}>09.02 - 09.18</p>
