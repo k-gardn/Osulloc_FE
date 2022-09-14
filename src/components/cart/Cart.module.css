@@ -2,7 +2,7 @@
   display: flex;
   position: relative;
   justify-content: center;
-  margin: 8em 5em 25em 5em;
+  margin: 5em 5em 25em 5em;
 }
 
 .leftBox {
@@ -10,8 +10,8 @@
 }
 
 .titleAndDelete {
-  border-bottom: 2px solid black;
-  width: 55vw;
+  border-bottom: 2px solid rgb(169, 161, 161);
+  width: 850px;
 }
 
 .titlecart {
@@ -32,9 +32,9 @@
 }
 
 .emptyCart {
-  width: 55vw;
+  width: 100%;
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 1em;
 }
 
 .rightBox {
