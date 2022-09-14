@@ -12,7 +12,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getdetail } from "../../redux/modules/detailSlice";
 import { postdetail } from "../../redux/modules/detailSlice";
 import { moneyForm } from "../../utils/moneyForm";
-import { moneyForm } from "../../utils/moneyForm";
 
 const Detail = () => {
   const dispatch = useDispatch();
