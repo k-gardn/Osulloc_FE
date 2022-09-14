@@ -11,7 +11,7 @@ const KakaoRedirect = () => {
     axios
       .get(`http://3.36.123.198/api/oauth/kakao?code=${code}`)
       .then((res) => {
-        const ACCESS_TOKEN = res.data.data.accessToken;
+        const ACCESS_TOKEN = res.headers["access-token"];
         const kakaoToken = res.data.data.kakaoToken;
         const refreshToken = res.headers["refresh-token"];
         const email = res.data.data.email;
