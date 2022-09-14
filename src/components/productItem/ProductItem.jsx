@@ -25,8 +25,10 @@ const ProductItem = ({ product }) => {
   const loginUser = localStorage.getItem("email");
 
   useEffect(() => {
-    dispatch(getcart());
-  }, [dispatch]);
+    if (loginUser !== null) {
+      dispatch(getcart());
+    }
+  }, []);
 
   useEffect(() => {
     setCartList(cart);
