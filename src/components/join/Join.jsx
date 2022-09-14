@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Join.module.css";
 import useInput from "../../hooks/useInput";
 import { instance } from "../../network/request";
+import { TextField } from "@mui/material";
 
 // Email: '@', '.' 포함
 export const validEmail =
@@ -44,12 +45,7 @@ function Join() {
       <div className={styles.joinbox}>
         <div className={styles.halfjoinbox}>
           <div className={styles.leftjoinbox}>
-            <img
-              src={"/osullocblacklogo.jpeg"}
-              alt="blacklogo"
-              width="300"
-              height="300"
-            />
+            <img src={"/osulloclogo.png"} alt="logo" width="350" height="245" />
           </div>
           <div className={styles.rightjoinbox}>
             <p className={styles.content}>오설록에 오신 것을 환영합니다</p>
@@ -60,9 +56,10 @@ function Join() {
               </div>
             </div>
             <div className={styles.inputbox}>
+              {/* <TextField label="이름" variant="standard" /> */}
               <input
                 className={styles.input}
-                placeholder="이름을 입력하세요."
+                placeholder="이름"
                 title="username"
                 value={username}
                 onChange={usernameHandler}
@@ -80,14 +77,14 @@ function Join() {
               </label>
               <input
                 className={styles.input}
-                placeholder="이메일을 입력하세요."
+                placeholder="이메일"
                 title="email"
                 value={email}
                 onChange={emailHandler}
               ></input>
               <input
                 className={styles.input}
-                placeholder="비밀번호 입력(4~16자 영문, 숫자 조합)"
+                placeholder="비밀번호(4~16자 영문, 숫자 조합)"
                 title="password"
                 type="password"
                 value={password}
@@ -95,7 +92,7 @@ function Join() {
               ></input>
               <input
                 className={styles.input}
-                placeholder="비밀번호 확인(4~16자 영문, 숫자 조합)"
+                placeholder="비밀번호(4~16자 영문, 숫자 조합)"
                 title="repassword"
                 type="password"
                 value={repw}
