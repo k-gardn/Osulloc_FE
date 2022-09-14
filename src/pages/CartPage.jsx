@@ -1,14 +1,13 @@
 import React from "react";
 import Cart from "../components/cart/Cart";
-import Header from "../components/common/Header/Header";
+import LayoutPage from "../components/common/LayoutPage";
 
 function CartPage() {
-    return (
-        <div>
-            <Header />
-            <Cart />
-        </div>
-    );
+  return (
+    <LayoutPage>
+      <Cart />
+    </LayoutPage>
+  );
 }
 
 export default CartPage;

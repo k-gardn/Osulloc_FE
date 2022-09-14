@@ -2,6 +2,7 @@
   display: flex;
   position: relative;
   justify-content: center;
+  margin: 8em 5em 25em 5em;
 }
 
 .leftBox {
