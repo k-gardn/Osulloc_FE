@@ -18,20 +18,27 @@ const Banner = () => {
   const BANNER_IMG_2 =
     "https://www.osulloc.com/upload/kr/ko/adminImage/KV/PJ/20220826104331702OY.png?quality=80";
   const BANNER_IMG_3 =
-    "https://www.osulloc.com/upload/kr/ko/adminImage/QS/OH/20220902091418907OS.png?quality=80";
+    "https://www.osulloc.com/upload/kr/ko/adminImage/IY/VF/20220518024839658QM.png?quality=80";
   const BANNER_IMG_4 =
-    "https://www.osulloc.com/upload/kr/ko/adminImage/CF/HD/20220825164210367CA.png?quality=80";
+    "https://www.osulloc.com/upload/kr/ko/adminImage/IK/GL/20220908093758342CK.png?quality=80";
 
   const bannerImgs = [BANNER_IMG_1, BANNER_IMG_2, BANNER_IMG_3, BANNER_IMG_4];
 
-  // const banner = document.querySelector("#banner");
-  // const bannerHeight = banner.getBoundingClientRect().height;
+  const BANNER_TEXT_1 =
+    "가을에 어울리는,티&티푸드 페어링,오설록이 제안하는 티와 티푸드 조합으로,성큼 다가온 가을을 맞이해보세요.,09.02 - 09.18";
+  const BANNER_TEXT_2 =
+    "오설록 선물하기 서비스,잘 활용하는 법,오설록의 간편한 선물하기 서비스로,언제든지 편하고 가볍게 티타임을 선물해보세요,09.08 - 10.08";
+  const BANNER_TEXT_3 =
+    "다다일상 홈카페,체험권 증정,VIP | VVIP 고객 대상 멤버십 혜택,지금 다다일상 홈카페를 경험해보세요,09.20 - 09.28";
+  const BANNER_TEXT_4 =
+    "오설록X페이스갤러리,티하우스 한남 오픈,오설록과 페이스갤러리가 제안하는,차와 예술의 감각적인 공간으로 초대합니다,09.01 - 10.30";
 
-  // console.log("banner", banner);
-  // console.log("bannerHeight", bannerHeight);
-
-  // const width = window.outerWidth;
-  // console.log("width ?", width);
+  const bannerTexts = [
+    BANNER_TEXT_1,
+    BANNER_TEXT_2,
+    BANNER_TEXT_3,
+    BANNER_TEXT_4,
+  ];
 
   return (
     <section id="banner" className={styles.bannerContainer}>
@@ -48,14 +55,16 @@ const Banner = () => {
               <img className={styles.bannerImg} src={img} alt="banner" />
               <div className={styles.bannerTextBox}>
                 <p className={styles.bannerTitle}>
-                  가을에 어울리는 <br />
-                  티&티푸드 페어링
+                  {bannerTexts[idx].split(",")[0]} <br />
+                  {bannerTexts[idx].split(",")[1]}
                 </p>
                 <p className={styles.bannerDescription}>
-                  오설록이 제안하는 티와 티푸드 조합으로 <br />
-                  성큼 다가온 가을을 맞이해보세요.
+                  {bannerTexts[idx].split(",")[2]} <br />
+                  {bannerTexts[idx].split(",")[3]}
                 </p>
-                <p className={styles.bannerDate}>09.02 - 09.18</p>
+                <p className={styles.bannerDate}>
+                  {bannerTexts[idx].split(",")[4]}
+                </p>
               </div>
             </div>
           </SwiperSlide>

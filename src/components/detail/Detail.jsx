@@ -13,6 +13,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getdetail } from "../../redux/modules/detailSlice";
 import useInput from "../../hooks/useInput";
 import { postdetail } from "../../redux/modules/detailSlice";
+import { moneyForm } from "../../utils/moneyForm";
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -21,13 +22,14 @@ const Detail = () => {
 
   const [count, setCount] = useState(parseInt("1"));
   const [pack, setPack] = useState(false);
-  const [packPrice, setPackPrice] = useState("");
+  const [packPrice, setPackPrice] = useState(0);
 
   const selectPackHandler = (e) => {
     e.preventDefault();
     setPack(e.target.value);
   };
-  console.log(pack, packPrice);
+  console.log("pack > ", pack);
+  console.log("packPrice > ", packPrice);
 
   useEffect(() => {
     if (pack === true) {
@@ -52,7 +54,7 @@ const Detail = () => {
 
   const detail = useSelector((state) => state.detail);
   const data = detail?.detail;
-  console.log(data?.content);
+  console.log("data?.content > ", data?.content);
   // console.log(data[0]?.price * count + packPrice);
 
   useEffect(() => {
@@ -213,7 +215,7 @@ const Detail = () => {
                     <div className={styles.price}>
                       <span className={styles.spanPrice}>상품금액합계</span>
                       <span className={styles.totalPrice}>
-                        {data?.price * count + packPrice}
+                        {`${moneyForm(data?.price * count + packPrice)}`}
                       </span>
                     </div>
                     <div className={styles.buyBtnSet}>
