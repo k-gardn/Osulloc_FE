@@ -1,74 +1,293 @@
-<<<<<<< HEAD
-# Getting Started with Create React App
+<div align="center">
+<br>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# <b>OSULLOC</b>
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+## <b>오설록 사이트 클론코딩</b>
 
-### `yarn start`
+https://osulloc.vercel.app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
+<hr>
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💻 &nbsp; <b>github</b> &nbsp; 💻
 
-### `yarn test`
+<br>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Front-end](https://github.com/k-gardn/osulloc_FE)
 
-### `yarn build`
+[Back-end](https://github.com/Jeeyeonn/innovation_clone_2_BE)
+<br>
+<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<hr>
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 👩🏻‍💻 <b>Contributors</b> 🧑🏻‍💻
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<br>
 
-### `yarn eject`
+| [김정원](https://github.com/k-gardn) | [문이슬](https://github.com/Leeseul-Moon) | [차혜인](https://github.com/hyeincha) | [박지연](https://github.com/Jeeyeonn) | [전선향](https://github.com/petal416) |
+| :----------------------------------: | :---------------------------------------: | :-----------------------------------: | :-----------------------------------: | :-----------------------------------: |
+|                  FE                  |                    FE                     |                  FE                   |                  BE                   |                  BE                   |
+|              상세페이지              |                메인페이지                 |                로그인                 |            전체상품페이지             |                로그인                 |
+|               장바구니               |              전체상품페이지               |               회원가입                |              상세페이지               |               회원가입                |
+|                                      |                                           |                                       |               장바구니                |              메인페이지               |
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+<br>
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ⚙️ <b>Tech Stack</b> 🛠
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Java-green?style=flat-square&logo=java&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Spring-green?style=flat-square&logo=Spring&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/javascript-yellow?style=flat-square&logo=javascript&logoColor=white"/><img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/React-blue?style=flat-square&logo=React&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Redux-purple?style=flat-square&logo=Redux&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/AWS-232f3e?style=flat-square&logo=amazon&logoColor=white"/>
+<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/vercel-black?style=flat-square&logo=vercel&logoColor=white"/> <br /><br />
 
-## Learn More
+## 🛼 <b>How to run</b> ⛸ </div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Back-End
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<br>
 
-### Code Splitting
+#### clone repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```shell
+$ git clone https://github.com/Jeeyeonn/innovation_clone_2_BE
+```
 
-### Analyzing the Bundle Size
+#### into the repository
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+```shell
+$ cd innovation_clone_2_BE
+```
 
-### Making a Progressive Web App
+#### build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```shell
+$ ./build gradle
+```
 
-### Advanced Configuration
+#### run server
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```shell
+$ java -jar build/libs/InnovationCloneBeApplicationTests.jar
+```
 
-### Deployment
+## Front-end
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+<br>
+#### clone repository
 
-### `yarn build` fails to minify
+```shell
+$ git clone https://github.com/k-gardn/osulloc_FE
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-=======
-# Osulloc_FE
->>>>>>> ddd38598b98a36f2e8dcd1fd485757e607b9b265
+#### into the repository
+
+```shell
+$ cd osulloc_FE
+```
+
+#### install packages
+
+```shell
+$ yarn
+```
+
+#### start app
+
+```shell
+$ yarn start
+```
+
+<br>
+<div align="center">
+
+## 📁 Directory Structure 📂 </div>
+
+### Front-end
+
+```
+📦src
+ ┣ 📂components
+ ┃ ┣ 📂cart
+ ┃ ┃ ┣ 📜Cart.jsx
+ ┃ ┃ ┗ 📜Cart.module.css
+ ┃ ┣ 📂cart_item
+ ┃ ┃ ┣ 📜CartItem.jsx
+ ┃ ┃ ┗ 📜CartItem.module.css
+ ┃ ┣ 📂common
+ ┃ ┃ ┣ 📂Footer
+ ┃ ┃ ┃ ┣ 📜Footer.jsx
+ ┃ ┃ ┃ ┗ 📜Footer.module.css
+ ┃ ┃ ┣ 📂Header
+ ┃ ┃ ┃ ┣ 📜Header.jsx
+ ┃ ┃ ┃ ┗ 📜Header.module.css
+ ┃ ┃ ┣ 📜LayoutPage.jsx
+ ┃ ┃ ┗ 📜LayoutPage.module.css
+ ┃ ┣ 📂detail
+ ┃ ┃ ┣ 📜Detail.jsx
+ ┃ ┃ ┗ 📜Detail.module.css
+ ┃ ┣ 📂join
+ ┃ ┃ ┣ 📜Join.jsx
+ ┃ ┃ ┗ 📜Join.module.css
+ ┃ ┣ 📂login
+ ┃ ┃ ┣ 📜KakaoLogin.jsx
+ ┃ ┃ ┣ 📜KakaoRedirect.jsx
+ ┃ ┃ ┣ 📜Login.jsx
+ ┃ ┃ ┗ 📜Login.module.css
+ ┃ ┣ 📂main
+ ┃ ┃ ┣ 📂banner
+ ┃ ┃ ┃ ┣ 📜Banner.jsx
+ ┃ ┃ ┃ ┣ 📜Banner.module.css
+ ┃ ┃ ┃ ┗ 📜arrowForward.png
+ ┃ ┃ ┣ 📂bestProducts
+ ┃ ┃ ┃ ┣ 📜BestProducts.jsx
+ ┃ ┃ ┃ ┗ 📜BestProducts.module.css
+ ┃ ┃ ┣ 📂eventBanner
+ ┃ ┃ ┃ ┣ 📜EventBanner.jsx
+ ┃ ┃ ┃ ┗ 📜EventBanner.module.css
+ ┃ ┃ ┣ 📂subscription
+ ┃ ┃ ┃ ┣ 📜Subscription.jsx
+ ┃ ┃ ┃ ┗ 📜Subscription.module.css
+ ┃ ┃ ┗ 📂subscriptionItem
+ ┃ ┃ ┃ ┣ 📜SubscriptionItem.jsx
+ ┃ ┃ ┃ ┗ 📜SubscriptionItem.module.css
+ ┃ ┣ 📂productItem
+ ┃ ┃ ┣ 📜ProductItem.jsx
+ ┃ ┃ ┗ 📜Productitem.module.css
+ ┃ ┗ 📂productList
+ ┃ ┃ ┣ 📜ProductList.jsx
+ ┃ ┃ ┗ 📜ProductList.module.css
+ ┣ 📂hooks
+ ┃ ┣ 📜useBrowerEvent.jsx
+ ┃ ┗ 📜useInput.js
+ ┣ 📂network
+ ┃ ┗ 📜request.js
+ ┣ 📂pages
+ ┃ ┣ 📜CartPage.jsx
+ ┃ ┣ 📜DetailPage.jsx
+ ┃ ┣ 📜MainPage.jsx
+ ┃ ┗ 📜ProductListPage.jsx
+ ┣ 📂redux
+ ┃ ┣ 📂modules
+ ┃ ┃ ┣ 📜cartSlice.js
+ ┃ ┃ ┣ 📜detailSlice.js
+ ┃ ┃ ┣ 📜productSlice.js
+ ┃ ┃ ┗ 📜usersSlice.js
+ ┃ ┗ 📜configStore.js
+ ┣ 📂utils
+ ┃ ┗ 📜moneyForm.js
+ ┣ 📜App.css
+ ┣ 📜App.js
+ ┣ 📜index.css
+ ┗ 📜index.js
+```
+
+### Back-end
+
+```
+📦src
+ ┣ 📂main
+ ┃ ┣ 📂java
+ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┗ 📂innovation
+ ┃ ┃ ┃ ┃ ┗ 📂innovation_clone_be
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂Cart
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Controller
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CartController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Dto
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartRequestDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CartResponseDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CartUpdateRequestDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Entity
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Cart.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Repository
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CartRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂Service
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CartService.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂Error
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Dto
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ResponseDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂Enum
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ErrorCode.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂Member
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Controller
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜MemberController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Dto
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜LoginRequestDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberRequestDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberResponseDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜TokenDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Entity
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜Member.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜RefreshToken.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Repository
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜RefreshTokenRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Service
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜MemberService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜UserDetailsImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserDetailsServiceImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂jwt
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AccessDeniedHandlerException.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜AuthenticationEntryPointException.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜JwtFilter.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜TokenProvider.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂shared
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Authority.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂OAuth
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜KakaoService.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OAuthController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OAuthResponseDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜OauthUserDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜UserDetailsImpl.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂Product
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Controller
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ProductController.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Dto
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Request
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ProductDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ProductRequestDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂Response
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜ProductDetailResponseDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ProductResponseDto.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Entity
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜Product.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📂Repository
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ProductRepository.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂Service
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜ProductService.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂config
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜CorsConfiguration.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┣ 📜JwtSecurityConfiguration.java
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜SecurityConfiguration.java
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂mail
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂Service
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜MailScheduler.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜InnovationCloneBeApplication.java
+ ┃ ┗ 📂resources
+ ┃ ┃ ┗ 📜Test.http
+ ┗ 📂test
+ ┃ ┗ 📂java
+ ┃ ┃ ┗ 📂com
+ ┃ ┃ ┃ ┗ 📂innovation
+ ┃ ┃ ┃ ┃ ┗ 📂innovation_clone_be
+ ┃ ┃ ┃ ┃ ┃ ┣ 📂Cart
+ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📂Entity
+ ┃ ┃ ┃ ┃ ┃ ┃ ┃ ┗ 📜CartTest.java
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜InnovationCloneBeApplicationTests.java
+```
+
+<div align="center">
+
+<br>
+
+## 💾 <b>Database Schema</b> 💿
+
+<br>
+
+![image](<https://postimagestorage.s3.amazonaws.com/innovation_clone+(1).png>) </div>
