@@ -34,7 +34,7 @@ function Join() {
       });
       console.log(res);
       if (res.data.data === null) {
-        alert(res.data.error);
+        alert("이미 가입된 이메일입니다.");
       } else {
         navigate("/login");
       }
