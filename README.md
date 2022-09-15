@@ -42,14 +42,12 @@ https://osulloc.vercel.app
 
 <br>
 
-<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Java-green?style=flat-square&logo=java&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Spring-green?style=flat-square&logo=Spring&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/javascript-yellow?style=flat-square&logo=javascript&logoColor=white"/><img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/React-blue?style=flat-square&logo=React&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Redux-purple?style=flat-square&logo=Redux&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/AWS-232f3e?style=flat-square&logo=amazon&logoColor=white"/>
+<img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Java-green?style=flat-square&logo=java&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Spring-green?style=flat-square&logo=Spring&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/javascript-yellow?style=flat-square&logo=javascript&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/React-blue?style=flat-square&logo=React&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/Redux-purple?style=flat-square&logo=Redux&logoColor=white"/> <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/AWS-232f3e?style=flat-square&logo=amazon&logoColor=white"/>
 <img style="margin:5px; border: 2px solid white; border-radius: 20px" src="https://img.shields.io/badge/vercel-black?style=flat-square&logo=vercel&logoColor=white"/> <br /><br />
 
 ## 🛼 <b>How to run</b> ⛸ </div>
 
 ## Back-End
-
-<br>
 
 #### clone repository
 
@@ -76,8 +74,6 @@ $ java -jar build/libs/InnovationCloneBeApplicationTests.jar
 ```
 
 ## Front-end
-
-<br>
 
 #### clone repository
 
