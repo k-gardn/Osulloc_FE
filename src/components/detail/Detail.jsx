@@ -26,7 +26,6 @@ const Detail = () => {
     e.preventDefault();
     setPack(e.target.value);
   };
-  console.log("pack > ", pack);
   console.log("packPrice > ", packPrice);
 
   useEffect(() => {
