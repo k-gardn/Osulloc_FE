@@ -75,27 +75,23 @@ const Detail = () => {
       <div className={styles.container}>
         <div className={styles.item_info}>
           <div className={styles.leftbox}>
-            <div className={styles.item_layout}>
-              <div className={styles.imgbox}>
-                <img className={styles.img} src={data.img1} alt="" />
-                <div className={styles.buyer_benefits}>
-                  <div className={styles.items}>
-                    <span>💍 뷰티포인트</span>
-                  </div>
-                  <div className={styles.items}>
-                    <span>🍀 찻잎 450p 적립</span>
-                  </div>
-                  <div className={styles.items}>
-                    <span>🚛 3만원 이상 무료배송</span>
-                  </div>
+            <img className={styles.img} src={data.img1} alt="" />
+            <div className={styles.buyer_benefits}>
+              <div className={styles.items}>
+                <span>💍 뷰티포인트</span>
+              </div>
+              <div className={styles.items}>
+                <span>🍀 찻잎 450p 적립</span>
+              </div>
+              <div className={styles.items}>
+                <span>🚛 3만원 이상 무료배송</span>
+              </div>
 
-                  <div className={styles.items}>
-                    <span>🎁 (유료)포장가능</span>
-                  </div>
-                  <div className={styles.items}>
-                    <span>👜 쇼핑백 동봉</span>
-                  </div>
-                </div>
+              <div className={styles.items}>
+                <span>🎁 (유료)포장가능</span>
+              </div>
+              <div className={styles.items}>
+                <span>👜 쇼핑백 동봉</span>
               </div>
             </div>
           </div>

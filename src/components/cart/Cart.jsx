@@ -84,45 +84,46 @@ const Cart = () => {
           ))}
         </div>
       </div>
-
-      <div className={styles.rightBox}>
-        <div className={styles.exeptBtn}>
-          <ul className={styles.cartPriceBoxTop}>
-            <div className={styles.cartPriceText}>
-              <li>상품금액</li>
-              <li>+{moneyForm(totalPrice)}</li>
+      <div className={styles.rightBoxContainer}>
+        <div className={styles.rightBox}>
+          <div className={styles.exeptBtn}>
+            <ul className={styles.cartPriceBoxTop}>
+              <div className={styles.cartPriceText}>
+                <li>상품금액</li>
+                <li>+{moneyForm(totalPrice)}</li>
+              </div>
+              <div className={styles.cartPriceText}>
+                <li>상품 할인</li>
+                <li
+                  style={{
+                    color: "red",
+                  }}
+                >
+                  -0원
+                </li>
+              </div>
+              <div className={styles.cartPriceText}>
+                <li>포장비</li>
+                <li>+{moneyForm(getWrapPrice.length * 2000)}</li>
+              </div>
+              <div className={styles.cartPriceText}>
+                <li>부가 쇼핑액</li>
+                <li>+0원</li>
+              </div>
+              <div className={styles.cartPriceText}>
+                <li>배송비</li>
+                <li>+3000원</li>
+              </div>
+            </ul>
+            <div className={styles.cartPriceBoxBottom}>
+              <div> 결제 예상 금액</div>
+              <div> {moneyForm(totalPrice + getWrapPrice.length * 2000)}</div>
             </div>
-            <div className={styles.cartPriceText}>
-              <li>상품 할인</li>
-              <li
-                style={{
-                  color: "red",
-                }}
-              >
-                -0원
-              </li>
-            </div>
-            <div className={styles.cartPriceText}>
-              <li>포장비</li>
-              <li>+{moneyForm(getWrapPrice.length * 2000)}</li>
-            </div>
-            <div className={styles.cartPriceText}>
-              <li>부가 쇼핑액</li>
-              <li>+0원</li>
-            </div>
-            <div className={styles.cartPriceText}>
-              <li>배송비</li>
-              <li>+3000원</li>
-            </div>
-          </ul>
-          <div className={styles.cartPriceBoxBottom}>
-            <div> 결제 예상 금액</div>
-            <div> {moneyForm(totalPrice + getWrapPrice.length * 2000)}</div>
           </div>
+          <button className={styles.orderBtn} onClick={finalorder}>
+            {moneyForm(totalPrice + getWrapPrice.length * 2000)} 주문하기
+          </button>
         </div>
-        <button className={styles.orderBtn} onClick={finalorder}>
-          {moneyForm(totalPrice + getWrapPrice.length * 2000)} 주문하기
-        </button>
       </div>
     </div>
   );
