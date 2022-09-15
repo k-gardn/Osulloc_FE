@@ -10,7 +10,7 @@
 https://osulloc.vercel.app
 
 <br>
-<hr>
+
 <br>
 
 ## 💻 &nbsp; <b>github</b> &nbsp; 💻
@@ -23,7 +23,6 @@ https://osulloc.vercel.app
 <br>
 <br>
 
-<hr>
 <br>
 
 ## 👩🏻‍💻 <b>Contributors</b> 🧑🏻‍💻
@@ -79,6 +78,7 @@ $ java -jar build/libs/InnovationCloneBeApplicationTests.jar
 ## Front-end
 
 <br>
+
 #### clone repository
 
 ```shell
@@ -108,7 +108,7 @@ $ yarn start
 
 ## 📁 Directory Structure 📂 </div>
 
-### Front-end
+#### Front-end
 
 ```
 📦src
@@ -187,7 +187,7 @@ $ yarn start
  ┗ 📜index.js
 ```
 
-### Back-end
+#### Back-end
 
 ```
 📦src
