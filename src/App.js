@@ -9,6 +9,9 @@ import CartPage from "./pages/CartPage";
 import KakaoRedirect from "./components/login/KakaoRedirect";
 
 function App() {
+  if (process.env.NODE_ENV === "production") {
+    console.log = function no_console() {};
+  }
   return (
     <BrowserRouter>
       <Routes>

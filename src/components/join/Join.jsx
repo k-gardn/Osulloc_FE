@@ -48,29 +48,31 @@ function Join() {
       <div className={styles.joinbox}>
         <div className={styles.halfjoinbox}>
           <div className={styles.leftjoinbox}>
-            <img src={"/osulloclogoedit.png"} alt="logo" width="260" height="250" />
+            <img src={"/osulloclogoedit.png"} alt="logo" width="230" height="220" />
           </div>
           <div className={styles.rightjoinbox}>
             <p className={styles.content}>오설록에 오신 것을 환영합니다</p>
             <div className={styles.inputbox}>
-              <input
-                className={styles.input}
-                placeholder="이름"
-                title="username"
-                value={username}
-                onChange={usernameHandler}
-                style={{ width: "160px", marginRight: "20px" }}
-              ></input>
-              <label className={styles.label}>
+              <div className={styles.namesub}>
                 <input
-                  title="subscribe"
-                  type="checkbox"
-                  value={subscription}
-                  onChange={subscribeHandler}
-                  style={{ margin: "3px 9px 3px 4px" }}
-                />
-                다다일상 구독하기
-              </label>
+                  className={styles.input}
+                  placeholder="이름"
+                  title="username"
+                  value={username}
+                  onChange={usernameHandler}
+                  style={{ width: "160px", marginRight: "20px" }}
+                ></input>
+                <label className={styles.label}>
+                  <input
+                    title="subscribe"
+                    type="checkbox"
+                    value={subscription}
+                    onChange={subscribeHandler}
+                    style={{ margin: "3px 9px 3px 4px" }}
+                  />
+                  다다일상 구독하기
+                </label>
+              </div>
               <input
                 className={styles.input}
                 placeholder="이메일"

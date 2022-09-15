@@ -4,7 +4,6 @@ import useInput from "../../hooks/useInput";
 import styles from "./Login.module.css";
 import { instance } from "../../network/request";
 import { validEmail, validPw } from "../join/Join";
-import { logout } from "../../network/request";
 import KakaoLogin from "./KakaoLogin";
 
 function Login() {

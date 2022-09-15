@@ -6,6 +6,7 @@ import Subscription from "../components/main/subscription/Subscription";
 import LayoutPage from "../components/common/LayoutPage";
 
 const MainPage = () => {
+  console.log("유알엘", process.env.REACT_APP_REDIRECT_URL);
   return (
     <LayoutPage>
       <Banner />
