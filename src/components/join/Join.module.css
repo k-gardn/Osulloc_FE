@@ -55,15 +55,16 @@
 }
 
 .content {
-  margin: 50px 0px 40px 0px;
+  margin: 50px 0px 50px 0px;
   text-align: center;
   font-size: 1.7rem;
   font-weight: bold;
-  letter-spacing: 0.22px;
 }
 
 .namesub {
   margin: auto;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
   width: 350px;
 }

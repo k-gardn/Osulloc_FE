@@ -60,7 +60,7 @@ function Join() {
                   title="username"
                   value={username}
                   onChange={usernameHandler}
-                  style={{ width: "160px", marginRight: "20px" }}
+                  style={{ width: "160px", marginTop: "0px" }}
                 ></input>
                 <label className={styles.label}>
                   <input
@@ -70,7 +70,7 @@ function Join() {
                     onChange={subscribeHandler}
                     style={{ margin: "3px 9px 3px 4px" }}
                   />
-                  다다일상 구독하기
+                  다다일상 구독
                 </label>
               </div>
               <input
