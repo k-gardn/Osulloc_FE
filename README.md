@@ -15,11 +15,8 @@ https://osulloc.vercel.app
 
 ## 💻 &nbsp; <b>github</b> &nbsp; 💻
 
-<br>
-
-[Front-end](https://github.com/k-gardn/osulloc_FE)
-
-[Back-end](https://github.com/Jeeyeonn/innovation_clone_2_BE)
+| [Front-end](https://github.com/k-gardn/osulloc_FE) |
+[Back-end](https://github.com/Jeeyeonn/innovation_clone_2_BE) |
 <br>
 <br>
 
